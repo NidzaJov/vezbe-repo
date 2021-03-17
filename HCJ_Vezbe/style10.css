@@ -1,0 +1,47 @@
+header,
+main,
+footer {
+    width: 100%;
+}
+header, footer{
+    height: 100px;
+}
+header{
+    background-color: chocolate;
+}
+footer{
+    background-color: tomato;
+}
+main{
+    display: flex;
+}
+.left-side,
+.center,
+aside {
+    height: 300px
+}
+.left-side,
+aside{
+    flex-grow: 1;
+}
+.left-side {
+    display: flex;
+    flex-direction: column;
+}
+nav, 
+section {
+    height: 150px;
+}
+nav {
+    background-color: #cccccccc;
+}
+section {
+    background-color: aqua;
+}
+aside {
+    background-color: brown
+}
+center {
+    flex-grow: 2;
+    background-color: #7d7d7d;
+}

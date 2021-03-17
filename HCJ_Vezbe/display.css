@@ -1,0 +1,107 @@
+.header{
+    background-color: gray;
+    height: 100px;
+}
+.nav{
+    background-color: blue;
+    height: 40px;
+    border-width:5px 0px;
+    border-style: solid;
+    border-color: white;
+}
+.main{
+    background-color: red;
+    height: 400px;
+}
+.main > aside{
+    background-color: grey;
+    height: 100%;
+    float: left;
+    width: 30%;
+    border-right-width: 5px;
+    border-right-style: solid;
+    border-color: white;
+    box-sizing: border-box;
+}
+.main > section{
+    background-color: chocolate;
+    height: 100%;
+    float: right;
+    width: 70%;
+}
+footer{
+    background-color: gray;
+    height: 100px;
+    border: 5px  solid white;
+    border-width: 5px 0px;
+}
+
+@media only screen and (max-width: 600px){
+    .main{
+        height: 100%;
+    }
+    .main > aside{
+        width: 100%;
+        float: none;
+        border: none;
+        border-bottom: 5px solid white;
+    }
+    .main > section{
+        width: 100%;
+        float: none;
+        height: 150px;
+    }
+}
+
+@media only screen and (min-width: 600px){
+    .main > aside{
+        width: 50%;
+        float: left;
+        border-right: 5px solid white;
+    }
+    .main section{
+        width: 50%;
+        float: right;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .main > aside{
+        background-color: blue;
+    }
+    .main > section{
+        background-color: red;
+    }
+}
+
+@media only screen and (min-width: 992px){
+    .main > aside{
+        width: 40%;
+    }
+    .main > section{
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .main > aside{
+        width: 30%;
+        background-color: gray;
+    }
+    main > section{
+        width: 70%;
+        background-color: tomato;
+    }
+}
+
+.floating{
+    background-color: blue;
+    width: 80px;
+    height: 80px;
+    border: 1px solid white;
+    float: left;
+}
+
+.clearfix{
+    clear: right;
+}
