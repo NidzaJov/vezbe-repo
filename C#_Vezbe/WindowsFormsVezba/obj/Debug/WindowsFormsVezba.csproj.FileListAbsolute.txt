@@ -1,0 +1,12 @@
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\bin\Debug\WindowsFormsVezba.exe.config
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\bin\Debug\WindowsFormsVezba.exe
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\bin\Debug\WindowsFormsVezba.pdb
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\obj\Debug\WindowsFormsVezba.csprojAssemblyReference.cache
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\obj\Debug\WindowsFormsVezba.Form1.resources
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\obj\Debug\WindowsFormsVezba.Properties.Resources.resources
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\obj\Debug\WindowsFormsVezba.csproj.GenerateResource.cache
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\obj\Debug\WindowsFormsVezba.csproj.CoreCompileInputs.cache
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\obj\Debug\WindowsFormsVezba.exe
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\obj\Debug\WindowsFormsVezba.pdb
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\obj\Debug\WindowsFormsVezba.Adress.resources
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\WindowsFormsVezba\obj\Debug\WindowsFormsVezba.Form2.resources

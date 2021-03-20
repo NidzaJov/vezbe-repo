@@ -1,0 +1,7 @@
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\Vezba2\bin\Debug\Vezba2.exe.config
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\Vezba2\bin\Debug\Vezba2.exe
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\Vezba2\bin\Debug\Vezba2.pdb
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\Vezba2\obj\Debug\Vezba2.csprojAssemblyReference.cache
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\Vezba2\obj\Debug\Vezba2.csproj.CoreCompileInputs.cache
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\Vezba2\obj\Debug\Vezba2.exe
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\Vezba2\obj\Debug\Vezba2.pdb

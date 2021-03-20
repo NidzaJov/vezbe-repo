@@ -1,0 +1,32 @@
+Klonirati repozitorijum i komitovati promene u njega:
+
+Create a local folder
+
+Open cmd inside the folder
+
+git clone https://github.com/dejanino/AcademyWebSite.git
+
+cd AcademyWebSite
+
+git checkout
+
+git push --set-upstream origin master
+
+git add .
+
+git commit -m 'Message'
+
+git push
+
+To set your global username/email configuration:
+
+Open the command line.
+Set your username: git config --global user.name "FIRST_NAME LAST_NAME"
+Set your email address: git config --global user.email "MY_NAME@example.com"
+
+
+
+Gurnuti postojeci projekat u tek napravljeni repozitorijum
+git remote add origin https://github.com/NidzaJov/market-store.git
+git branch -M main
+git push -u origin main
