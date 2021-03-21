@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -150,11 +151,61 @@ namespace AsyncVezba
             int result = delegat.EndInvoke(async);
             Console.WriteLine($"Result of 20 = {result}");
             */
+            /*
             callMethod();
             Console.WriteLine(DownloadContent().Result);
+            */
+            //CallCalculate();
+            WriteAndReadTextFromFile();
 
             Console.ReadKey();
 
+        }
+        public static async void WriteAndReadTextFromFile()
+        {
+            string filepath = @"C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\AsyncVezba\obj\Debug\data.txt";
+            string text = "Some text";
+            await WriteTextToFileAsync(filepath, text);
+            Console.WriteLine("Text written");
+            Console.WriteLine("Other work 1");
+            Console.WriteLine("Other work 2");
+            Console.WriteLine(await ReadTextFromFileAsync(filepath));
+            Console.WriteLine("After work");
+
+        }
+        public static async Task WriteTextToFileAsync(string filepath, string text)
+        {
+            byte[] encodedText = Encoding.Unicode.GetBytes(text);
+            using (FileStream sourceStream = new FileStream(filepath, FileMode.Create, FileAccess.Write, FileShare.None, bufferSize: 4096, useAsync: true))
+            {
+                await sourceStream.WriteAsync(encodedText, 0, encodedText.Length);
+            }
+        }
+        public static async Task<int> ReadTextFromFileAsync(string filepath)
+        {
+            int length = 0;
+            Console.WriteLine(" File reading is strating.");
+            using (StreamReader streamreader = new StreamReader(filepath))
+            {
+                string s = await streamreader.ReadToEndAsync();
+                length = s.Length;
+            }
+            Console.WriteLine("File Reading is completed");
+            return length;
+        }
+        public static Task<int> Calculate = Task.Factory.StartNew(() =>
+        {
+            int sum = 0;
+            for (int i = 1; i <= 1000000; i++)
+            {
+                sum += i;
+            }
+            return sum;
+        });
+        public static async void CallCalculate()
+        {
+            var result = await Calculate;
+            Console.WriteLine(result);
         }
         public static async Task<string> DownloadContent()
         {
