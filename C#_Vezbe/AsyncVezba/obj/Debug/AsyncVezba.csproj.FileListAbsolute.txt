@@ -1,0 +1,7 @@
+C:\Users\Nikola\Desktop\vezbe-repo\AsyncVezba\bin\Debug\AsyncVezba.exe.config
+C:\Users\Nikola\Desktop\vezbe-repo\AsyncVezba\bin\Debug\AsyncVezba.exe
+C:\Users\Nikola\Desktop\vezbe-repo\AsyncVezba\bin\Debug\AsyncVezba.pdb
+C:\Users\Nikola\Desktop\vezbe-repo\AsyncVezba\obj\Debug\AsyncVezba.csprojAssemblyReference.cache
+C:\Users\Nikola\Desktop\vezbe-repo\AsyncVezba\obj\Debug\AsyncVezba.csproj.CoreCompileInputs.cache
+C:\Users\Nikola\Desktop\vezbe-repo\AsyncVezba\obj\Debug\AsyncVezba.exe
+C:\Users\Nikola\Desktop\vezbe-repo\AsyncVezba\obj\Debug\AsyncVezba.pdb
