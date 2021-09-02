@@ -1,0 +1,7 @@
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\DopunskaEventsVezba\bin\Debug\DopunskaEventsVezba.exe.config
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\DopunskaEventsVezba\bin\Debug\DopunskaEventsVezba.exe
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\DopunskaEventsVezba\bin\Debug\DopunskaEventsVezba.pdb
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\DopunskaEventsVezba\obj\Debug\DopunskaEventsVezba.csprojAssemblyReference.cache
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\DopunskaEventsVezba\obj\Debug\DopunskaEventsVezba.csproj.CoreCompileInputs.cache
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\DopunskaEventsVezba\obj\Debug\DopunskaEventsVezba.exe
+C:\Users\Nikola\Desktop\vezbe-repo\C#_Vezbe\DopunskaEventsVezba\obj\Debug\DopunskaEventsVezba.pdb
