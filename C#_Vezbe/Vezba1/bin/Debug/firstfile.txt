@@ -1,4 +1,0 @@
-Fle i/o example
-SEDC i/o class
-Third line
-New text
