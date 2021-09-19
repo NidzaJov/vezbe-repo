@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+  <html>
+      <head>
+          <title>Introduction to HTML</title>
+          <style>
+              .ista-klasa{
+                  background-color: black;
+                  color: white;
+              }
+              /*ol, ul{
+                  list-style-type: circle;
+              }*/
+              q{
+                  font-style: italic;
+              }
+          </style>
+      </head>
+      <body>
+
+        <!--Heading-->
+        <h1>This is Main Heading</h1>
+        <h2>This is Lecel 2 heading</h2>
+        <h3>This is level 3 heading</h3>
+        <h4>This is level 4 heading</h4>
+        <h5>This is level 5 heading</h5>
+        <h6>This is level 6 heading</h6>
+
+        <!--Paragraph-->
+        <p>This is a paragraph</p>
+        <p>This is second paragraph</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt molderedlit anim id est laborum.</p>
+
+        <div>Hello World</div>
+
+        <!--Ordered list-->
+        <ol>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+        </ol>
+
+        <!--Unordered list-->
+        <ul>
+            <li>List item 01</li>
+            <li>List item 02</li>
+            <li>List item 03</li>
+        </ul>
+
+        <!--Definition list-->
+        <dl>
+            <dt>term 01</dt>
+            <dd>Definition for term 01</dd>
+            <dt>term 02</dt>
+            <dd>Definition for term 02</dd>
+        </dl>
+
+        <!--Nested list-->
+        <ol>
+            <li>Level01 - List item 1</li>
+            <li>Level01 - List item 2</li>
+            <li>
+                <ul>
+                    <li>Level02 - List item 1</li>
+                    <li>Level02 - List item 2</li>
+                    <li>
+                        <ol>
+                            <li>Level 3 - list item 1></li>
+                            <li>Level 3 - list item 2</li>
+                        </ol>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <!--Formating text-->
+        <p>This <b><i>paragraph</i></b> is gonna <em>help</em> us <i>demonstrate</i> the 
+        <u>formatting <strong>html elements</strong></u></p>
+
+        <p>Index (subscript): 2<sub>5</sub></p>
+        <p>Index (superscript): 2<sup>5</sup></p>
+
+        <!--Brak line-->
+        <br />
+
+        <!--Horizontal rule-->
+        <hr />
+
+        <div id="prvi" class="ista-klasa">
+            OVO JE DIV1
+        </div>
+        <div id="drugi" class="ista-klasa">
+            OVO JE DIV2
+        </div>
+        <div style="background-color: red;" id="treci">
+            OVO JE DIV 3
+        </div>
+      
+
+      <!--Quotes-->
+
+      <p><q cite="Dejan Grozdanovic">JavaScript is not easy!</q> - Dejan Grozdanovic 2019</p>
+
+      <blockquote cite="http://wikipedia.com">
+        <h3>Learn JavaScript</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </blockquote>
+
+      <!--Abbreviations and Acronyms-->
+      <p><abbr title="Hyper Text Markup Language">HTML</abbr>is easy</p>
+
+      <!--Adress-->
+      <p><abbr title="Seavus Education and Development Center">SEDC</abbr> is located at <address>Maksima Gorkog</address></p>
+
+      <!--Escape characters-->
+      <p>This is how we use &lt;h3&gt; HTML element</p>
+
+      <p>Copyright &copy; 2019. All rights reseved</p>
+
+      <!--Emails-->
+      <h1>dejan.grozdanovic@seavus.com</h1>
+      <h1>strahinja.stamenkovic@seavus.com</h1>
+
+      <!--Hyperlinks-->
+      <h1 id="first-element">Hyperlinks Main</h1>
+
+      <!--Absolute URLs /paths-->
+      <a href="https://www.google.com/" target="_blank">Google</a>
+
+      <!--Relative URLs / paths-->
+      <a href="hyperlinks02.html">Hyperlink 02</a>
+
+      <a href="category/hyperlinks03.html">Hyperlinks 03</a>
+
+      <!--Anchors-->
+      <a href="#last-element">Go to botom</a>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Architecto animi consectetur, neque voluptatem quia exercitationem
+           pariatur explicabo maxime nihil. Facilis consequatur soluta
+            tempore laborum laboriosam recusandae dolor tempora ab nam!</p>
+    
+      <!--Anchor -Back to top-->
+      <a href="#first-element">Back to top</a>
+
+      <!-- Email Address Links-->
+      <a href="mailto:dejan.grozdanovic@seavus.com">Send mail to Dejan</a>
+
+      <p id="last-element">Copyright &copy; 2019</p>
+
+      <!--Images-->
+      
+      <img src="img/html5-css3.png" alt="SEDC" width="500">
+
+      <!--Image as a link-->
+      <a href="https://www.facebook.com/" target="_blank">
+        <img src="img/html5-css3.png" alt="SEDC" width="200" />
+      </a>
+
+      <br />
+      <br />
+
+      <!--Image with an Image-Map-->
+      <img src="img/html5-css3.png" alt="SEDC" usemap="#html-map" />
+
+      <map name="html-map">
+          <area shape="poly" coords="270,537,132,502,100,152,441,155,411,501" target="_blank" />
+          <area shape="poly" coords="885,547,747,505,717,155,1056,157,1026,504" target="_blank" />
+      </map>
+
+    </body>  
+  </html>
