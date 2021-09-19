@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML Tables and Forms</title>
+    </head>
+    <body>
+        <table border="2" cellpadding="10" cellspacing="10">
+            <caption>HTML Full Table</caption>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th><i>Column 1</i></th>
+                    <th>Column 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Cell 01</td>
+                    <td rowspan="2">Cell 02</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Cell 03</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td colspan="2">Totall for all columns: 45</td>
+                </tr>
+            </tfoot>
+
+        </table>
+        <br />
+        <form action="" method="post">
+            <fieldset>
+                <legend>Prijava</legend>
+
+                <label for="korisnicko-ime">Korisnicko ime:</label>
+                <input type="text" name="korisnicko-ime" id="korisnicko-ime" value="Milos">
+
+                <label for="sifra">Sifra:</label>
+                <input type="password" name="sifra" id="sifra" />
+
+                <br />
+                <label for="poruka">Vasa poruka:</label>
+                <textarea name= "poruka" id="poruka" cols="60" rows="10"></textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    Making choices
+                </legend>
+
+                <p>Choose your favourite music genre:</p>
+
+                <input type="radio" id="radio-rock" name="genre" value="rock" checked>
+                <label for="radio-rock">Rock</label>
+
+                <input type="radio" id="radio-pop" name="genre" value="pop" >
+                <label for="radio-pop">Pop</label>
+
+                <input type="radio" id="radio-jazz" name="genre" value="jazz">
+                <label for="radio-jazz">Jazz</label>
+
+                <br/>
+
+                <p>Choose your favourite music streaming service:</p>
+
+                <input type="checkbox" name="service" id="check-spotify" value="spotify">
+                <label for="check-spotify">Spotify</label>
+
+                <input type="checkbox" name="service" id="check-itunes" value="itunes">
+                <label for="check-itunes">iTunes</label>
+
+                <p>Chosse your country:</p>
+                <label for="country-select">Country:</label>
+                <select name="country" id="country-select" multiple size="4">
+                    <option selected disabled>Please select</option>
+                    <option value="Serbia">Serbia (RS)</option>
+                    <option value="Macedonia">Macedonia (MK)</option>
+                    <option value="Greece">Grece (GR)</option>
+                </select>
+
+                <label for="other">Other:</label>
+                <input type="text" id="other">
+                </fieldset>
+
+                <fieldset>
+                    <legend>File upload</legend>
+
+                    <label for="user-cv">CV input</label>
+                    <input type="file" name="user-cv" id="user-cv"/>
+                </fieldset>
+
+                <fieldset>
+                    <legend>New elements</legend>
+
+                    <label for="id-datum">Date entry:</label>
+                    <input type="date" name="datum" id="id-datum"/>
+
+                    <label for="e-mail">E-mail:*</label>
+                    <input type="email" name="e-mail" id="email" placeholder="enter your email" />
+
+                    <label for="search">Search:</label>
+                    <input type="search" name="search" id="search" placeholder="enter your search here..."/>
+
+                    <label for="url">URL:</label>
+                    <input type="url" name="url" id="url" palceholder="enter your url"/>
+                </fieldset>
+
+                <input type="submit" value="Posalji"/>
+                <input type="reset" value="Resetuj"/>
+                <input type="hiden" value="Neka vrednost"/>
+
+                <button type="submit">
+                    <img src="img/html5-css3.png" width="40">
+                </button>
+        </form>
+    </body>
+</html>
