@@ -1,0 +1,125 @@
+.display-property-none{
+    background-color: blue;
+    height: 150px;
+    display: none;
+}
+
+.display-property-block{
+    background-color: red;
+    height: 150px;
+    width: 150px;
+    display: block;
+}
+
+.display-property-inline{
+    background-color: cyan;
+    width: 150px;
+    height:150px;
+    display: inline;
+}
+
+.display-property-inline-block{
+    background-color: chartreuse;
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+}
+
+/* realtive positioning */
+.relative{
+    position: relative;
+    top: 50px;
+    left:150px;
+}
+
+/* absolute positioning */
+.parent{
+    margin: 80px 0px;
+    border: 2px solid black;
+    position: relative;
+}
+
+.absolute{
+    position: absolute;
+    bottom: 20px;
+    right: 20px
+}
+
+/* fixed positioning */
+.fixed{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+
+    text-align: center;
+    line-height: 50px;
+    background-color: yellow;
+    z-index: 1000;
+}
+
+/* floating elements */
+.floating{
+    background-color: blue;
+    width: 80px;
+    height: 80px;
+    float: left;
+}
+
+.clearfix{
+    clear: both;
+}
+
+/* Layout Structure using float */
+
+.header{
+    background-color: #333;
+    height: 100px
+}
+
+.nav{
+    background-color: #333;
+    height: 40px;
+
+    border-width: 5px 0;
+    border-style: solid;
+    border-color: white;
+}
+
+.main{
+    background-color: yellow;
+    height: 400px;
+
+}
+
+.main > aside{
+    background-color: #333;
+    height: 100%;
+
+    float: left;
+    width: 20%;
+
+    border-right-width: 5px;
+    border-style: solid;
+    border-color: white;
+    box-sizing: border-box;
+}
+
+.main > section{
+    background-color: #555;
+    height: 100%;
+    border-style: solid;
+    border-color: white;
+    float: right;
+    width: 80%;
+    box-sizing: border-box;
+
+}
+
+.footer{
+    background-color: #333;
+    height: 100px;
+    border-width: 5px 0;
+    border-style: solid;
+    border-color: white;
+
+}
