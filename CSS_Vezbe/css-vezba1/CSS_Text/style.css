@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Grechen Fuemen', 'cursive';
+    src: url("Fonts/GrechenFuemen-Regular.ttf");
+}
+
+/*@font-face {
+    font-family: 'Gluten', 'cursive';
+} */
+
+/* System font */
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    font-size: 16px;
+}
+
+/* Random font downloaded from the web*/
+
+h1{
+    font-family: GrechenFuemen-Regular, cursive
+}
+
+/* Google fonts: Roboto */
+
+h2{
+    font-family: Gluten, cursive;
+    font-weight: 800;
+    font-size: 1.875em;
+    font-style: italic;
+    text-transform: capitalize;
+    text-decoration: underline;
+    text-shadow: -5px 5px 4px #2152a0;
+}
+
+p{
+    font-weight: 700;
+    font-style:oblique;
+    line-height: 40px;
+    word-spacing: 10px;
+    letter-spacing: 5px;
+
+    text-align: justify;
+}
+
+/* pseudo elemenets - pseudo selectors */
+
+p:first-letter{
+    font-size: 60px
+}
+
+p::first-line{
+    background-color: #7fea7f;
+}
+
+#vertical{
+    background-color: yellow;
+    vertical-align: -25px;
+}
+
+/* Links */
+
+a{
+    color: blue;
+    text-decoration:underline;
+}
+
+a:visited{
+    color: purple;
+}
+
+a:hover{
+    background-color: blue;
+    color: white;
+    text-decoration: underline;
+}
+
+a:focus{
+    background-color: orange;
+}
+
+a:active{
+    background-color: yellow;
+    color: black
+}
+

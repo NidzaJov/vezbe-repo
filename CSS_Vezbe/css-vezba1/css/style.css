@@ -1,0 +1,28 @@
+/* predefined color names */
+.color-name{
+    background-color: darkcyan;
+}
+
+/* RGB Colors */
+.rgb-color{
+    background-color: rgb(36, 32, 59);
+}
+
+/* HEX Code */
+
+.hex-code{
+    background-color: #11512b;
+}
+
+/* opacity */
+h2{
+    background-color: #11512b;
+    color: white;
+    opacity: 0.4;
+}
+
+/* rgba / hsl + hsla colors / CSS3 option */
+h1{
+    color: hsla(233, 65%, 16%, 0.7);
+    background-color: rgba(45, 71, 29, 0.5)
+}

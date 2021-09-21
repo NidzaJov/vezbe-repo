@@ -1,0 +1,47 @@
+div{
+    /* default-values */
+    width: 500px;
+    height: auto;
+
+    text-align: center;
+
+    /* limiting values */
+    min-width: 300px;
+    max-width: 600px;
+
+    background-color: orange;
+
+    /* border */
+    border-top-width: 5px;
+    border-right-width: 2px;
+    border-bottom-width: 5px;
+    border-left-width: 2px;
+
+    border-width: 5px 2px 5px 2px;
+    border-width: 5px 2px 5px;
+    border-width: 5px 2px;
+    border-width: 5px;
+
+    border-style: solid;
+
+    border-color: black;
+
+    border: 5px solid black;
+
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+
+    padding: 20px 40px;
+
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+
+    margin: 20px auto;
+
+    box-sizing: border-box;
+
+}
