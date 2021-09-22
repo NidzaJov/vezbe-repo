@@ -164,7 +164,7 @@ a:active{
 
 
 @media only screen and (max-width: 600px){
-    
+    /*
     .main{
         width:100%;
     }
@@ -203,6 +203,7 @@ a:active{
         height: 100px;
         border: 2px solid white;
     } 
+    */
 }
 
 @media only screen and (min-width: 600px){
