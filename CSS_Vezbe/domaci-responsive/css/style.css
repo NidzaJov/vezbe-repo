@@ -1,0 +1,296 @@
+*{
+    font-size: 16px;
+}
+
+body{
+    box-sizing: border-box;
+}
+
+a:link{
+    color: darkblue;
+    text-decoration: underline;
+}
+
+a:visited{
+    color:darkmagenta;
+    text-decoration: underline;
+}
+
+a:hover{
+    color: deeppink;
+}
+
+a:focus{
+    color: darkslateblue;
+}
+
+a:active{
+    color: red;
+}
+
+.header{
+    background-color: yellow;
+    width: 100%;
+    height: 100px;
+    border: 2px solid white;
+    text-align: center;
+    position: relative;
+    
+}
+
+.header > h1{
+  margin: 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main{
+    background-color: violet;
+    height: 800px;
+    /*border: 2px solid white;*/
+    width: 100%;
+    box-sizing: inherit;
+}
+
+.personal-navigation{
+    width: 100%;
+    height: 35%;
+}
+
+.nav{
+    background-color: orange;
+    width: 100%;
+    height: 40%;
+    border: 2px solid white;
+    position: relative;
+}
+
+.nav > h1{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.personal-section{
+    background-color: lightgrey;
+    width: 100%;
+    height: 60%;
+    border: 2px solid white;
+    box-sizing: border-box;
+}
+
+.personal-section > div:nth-child(2){
+    float:left;
+    width: 30%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+.personal-section > div:nth-child(2) > img{
+    height: 50%;
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.personal-section > div:nth-child(1){
+    float: right;
+    width: 70%;
+    height: 50%;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+
+
+
+
+.content-article{
+    background-color:darkcyan;
+    width: 100%;
+    height: 40%;
+    border: 2px solid white;
+    position: relative;
+}
+
+.content-article > h1{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.aside{
+    background-color: tomato;
+    width:100%;
+    height: 25%;
+    border: 2px solid white;
+    position: relative;
+}
+
+.aside > h1{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.footer{
+    background-color: green;
+    width: 100%;
+    height: 100px;
+    border: 2px solid white;
+    position: relative;
+} 
+
+.footer > h1{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%)
+}
+
+
+
+@media only screen and (max-width: 600px){
+    
+    .main{
+        width:100%;
+    }
+
+    .personal-navigation{
+        width: 100%;
+        height: 35%;
+    }
+
+    .nav{
+        width: 100%;
+        height: 40%;
+        border: 2px solid white;
+    }
+    
+    .personal-section{
+        width: 100%;
+        height: 60%;
+        border: 2px solid white;
+    }
+    
+    .content-article{
+        width: 100%;
+        height: 40%;
+        border: 2px solid white;
+    }
+    
+    .aside{
+        width:100%;
+        height: 25%;
+        border: 2px solid white;
+    }
+    
+    .footer{
+        width: 100%;
+        height: 100px;
+        border: 2px solid white;
+    } 
+}
+
+@media only screen and (min-width: 600px){
+    .personal-navigation{
+        float: left;
+        width: 100%;
+        height: 25%;
+    }
+
+    .nav{
+        float:left;
+        width: 25%;
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    .personal-section{
+        float:left;
+        width: 75%;
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    .content-article{
+        float:left;
+        height: 50%;
+        width: 100%;
+    }
+    .aside{
+        float: left;
+        height: 25%;
+        width: 100%;
+    }
+}
+
+
+@media only screen and (min-width: 992px){
+    
+    .personal-navigation{
+        float: left;
+        width: 25%;
+        height: 100%;
+    }
+    .nav{
+        float:left;
+        width: 100%;
+        box-sizing: border-box;
+        height: 50%;
+    }
+
+    .personal-section{
+        float: left;
+        width: 100%;
+        box-sizing: border-box;
+        height: 50%;
+    }
+
+    .personal-section > div:nth-child(1){
+        float: left;
+        height: 50%;
+        width: 100%;
+    }
+
+    .personal-section > div:nth-child(2){
+        float: left;
+        height: 50%;
+        width: 100%;
+    }
+
+    .personal-section > div:nth-child(2) > img{
+        height: 75%;
+    }
+
+
+
+    .content-article{
+        float:left;
+        width: 50%;
+        box-sizing: border-box;
+        height: 100%
+    }
+
+    .aside{
+        float: right;
+        width: 25%;
+        box-sizing: border-box;
+        height: 100%;
+        border-right-width: 0px;
+    }
+}
+
