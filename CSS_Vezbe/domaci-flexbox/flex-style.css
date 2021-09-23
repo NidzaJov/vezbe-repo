@@ -1,0 +1,60 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    height: 960px;
+    box-sizing: border-box;
+    background-color: dimgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.container {
+    background-color: floralwhite;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.container > div{
+    background-color: firebrick;
+    margin:3px auto;
+    width: 90%; 
+    height: 3%;
+    flex-direction: row;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px){
+
+}
+
+@media screen and (min-width: 600px){
+    .container > div{
+        height: 7%;
+        width: 45%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .container > div{
+        height: 14%;
+        width: 16%
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container > div{
+        height: 20%;
+        width: 14%;
+    }
+}
