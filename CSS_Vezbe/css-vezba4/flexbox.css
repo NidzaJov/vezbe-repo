@@ -1,0 +1,158 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: gray;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+
+h2{
+    color: gray;
+    text-transform: uppercase;
+}
+
+.container{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.example{
+    background-color: white;
+    padding: 3em;
+    margin: 2em 0;
+}
+
+.parent{
+    border: 5px solid chocolate
+}
+
+.item{
+    background-color: skyblue;
+    margin: 5px;
+    line-height: 50px;
+}
+
+/* Display Flex */
+
+.example-flex .parent{
+    display: flex;
+}
+
+.example-flex .item{
+    width: 50px;
+}
+
+/* Flex Wrap */
+
+.example-wrap .parent{
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+
+.example-wrap .item{
+    width: 100px;
+}
+
+/* Flex Direction */
+.example-direction .parent{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.example-direction .item{
+    width: 50px;
+}
+
+/* Justify Content */
+.example-justify .parent{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.example-justify .item{
+    width: 35px;
+}
+
+/* Align Items */
+
+.example-align-items .parent{
+    display: flex;
+    height: 200px;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.example-align-items .item{
+    width: 35px;
+    height: 50px;
+}
+
+/* Align Content */
+
+.example-align-content .parent{
+    display: flex;
+    height: 300px;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.example-align-content .item{
+    width: 100px;
+    height: 50px;
+}
+
+/* Item Order */
+
+.example-order .parent{
+    display: flex;
+}
+
+.example-order .item{
+    width: 50px;
+}
+
+.example-order .item:nth-child(1) {
+    order: 4;
+}
+
+.example-order .item:nth-child(2){
+    order: 5;
+}
+
+.example-order .item:nth-child(3){
+    order: 1;
+}
+
+.example-order .item:nth-child(4){
+    order: 3;
+}
+
+.example-order .item:nth-child(5){
+    order: 2;
+}
+
+/* Flex Grow */
+
+.example-grow .parent{
+    display: flex;
+}
+
+.example-grow .item{
+    flex-grow: 1;
+}
+
+.example-grow .item:nth-child(2){
+    flex-grow: 3;
+}
+
+.example-grow .item:last-child {
+    flex-grow: 5;
+}
+
+
+
