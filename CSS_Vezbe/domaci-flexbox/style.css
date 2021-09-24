@@ -1,0 +1,176 @@
+@font-face {
+    font-family: 'MaybeOneDay';
+    src: url('fonts/MaybeOneDay.ttf');
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+body{
+    
+    font-size: 16px;
+    height: 800px
+}
+
+.container-page1{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.label-column{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: lightgray;
+    position: relative;
+}
+
+.input-column{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: skyblue;
+    position: relative;
+}
+
+.label-column label:nth-child(1){
+    position: absolute;
+    top: 50px;
+    left:30px;
+}
+
+.label-column label:nth-child(2){
+    position: absolute;
+    top: 75px;
+    left:30px;
+}
+
+.label-column label:nth-child(3){
+    position: absolute;
+    top: 200px;
+    left:30px;
+    width: 60%;
+}
+
+.input-column input:nth-child(1){
+    position: absolute;
+    top: 50px;
+    left:30px;
+    width: 60%;
+}
+
+.input-column input:nth-child(2){
+    position: absolute;
+    top: 75px;
+    left:30px;
+    width: 60%;
+}
+
+.input-column input:nth-child(3){
+    position: absolute;
+    top: 200px;
+    left:30px;
+    width: 60%;
+}
+
+footer{
+    height:10%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    align-content: space-between;
+    justify-content: center;
+}
+
+a:link{
+    color: blue;
+    text-decoration: underline;
+}
+
+a:visited{
+    color: purple;
+    text-decoration: underline;
+}
+
+a:hover{
+    color:seagreen;
+}
+
+a:focus{
+    background-color: darkslategrey;
+}
+
+.pagination{
+    height: 30px;
+    width: 60px;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    height:20%;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: left;
+    margin: 10px 20px;
+}
+
+.label{
+    margin-right: 20px;
+}
+
+.container-page2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 60%;
+}
+
+.bar{
+    border: 2px solid black;
+    width: 40px;
+    margin: auto 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#bar1{
+    height: 40%;
+}
+
+#bar2{
+    height: 50%;
+}
+
+#bar3{
+    height: 60%;
+}
+
+#bar4{
+    height: 20%;
+}
+
+#bar5{
+    height: 30%;
+}
+
+
+
