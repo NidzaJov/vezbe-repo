@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content='ie=edge'>
+        <title>Document</title>
+        <style>
+            .crveno{
+                color: red;
+            }
+
+            .zeleno {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Selectors Demo</h1>
+        <p id="myParagraph">This paragraph has an id equal to <strong>"myParagraph"</strong></p>
+
+        <div id="kontejnerListe1" class="kontejner crveno" name="mojKontejner">
+            Ovo je kontejner prve liste.
+            <ul>
+                <li class="list-item">Prvi</li>
+                <li class="list-item">Drugi</li>
+                <li class="list-item">Treci</li>
+                <li class="list-item">Cetvrti</li>
+            </ul>
+        </div>
+
+        <div id="kontejnerListe2">
+            Ovo je kontejner druge liste.
+            <ul>
+                <li class="list-item"></li>
+                <li class="list-item"></li>
+                <li class="list-item"></li>
+                <li class="list-item"></li>
+            </ul>
+        </div>
+
+        <div id="josJedanKontejner" style="border: 1px solid black;">
+            <p>3</p>
+            <div id="kontejnerZaButton" style="border: 1px solid black;">
+                <p>2</p>
+                <button id='dugme'>1</button>
+            </div>
+        </div>
+
+        <script src="dom.js"></script>
+        <script src="events.js"></script>
+
+    </body>
+</html>
