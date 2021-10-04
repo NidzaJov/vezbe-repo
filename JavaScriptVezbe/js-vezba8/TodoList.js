@@ -30,4 +30,4 @@ let ToDoList = function(ItemList, targetSelector) {
     
 };
 
-export { ToDoList };
+export { TodoList };
