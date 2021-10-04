@@ -1,6 +1,6 @@
 import { mainTodoList, renderedList } from './main.js';
 
-let ToDoList = function(ItemList, targetSelector) {
+let TodoList = function(ItemList, targetSelector) {
 
     this.renderList = function() {
         let targetElement = document.querySelector(targetSelector);
