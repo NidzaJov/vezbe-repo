@@ -1,4 +1,4 @@
-import {mainToDoList, renderedList} from './main.js';
+import { mainTodoList, renderedList } from './main.js';
 
 let ToDoList = function(ItemList, targetSelector) {
 
