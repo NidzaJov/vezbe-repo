@@ -9,7 +9,7 @@ mainTodoList.addItem(new ListItem('Kupi hleb'));
 mainTodoList.addItem(new ListItem('Kupi mleko'));
 mainTodoList.addItem(new ListItem('Izbaci smece'));
 
-let TodoForm = new TodoForm('#todoForm');
+let todoForm = new TodoForm('#todoForm');
 let renderedList = new TodoList(mainTodoList, '#todoList');
 renderedList.renderList();
 
