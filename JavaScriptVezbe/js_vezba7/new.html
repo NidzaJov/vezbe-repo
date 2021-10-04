@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <title>SEDC-JS</title>
+    </head>
+    <body>
+        <script>
+            let arr = [1, 2, 3, 4, 5]
+            let plus5 = arr.map((val) => {
+                return val + 5;
+            })
+            console.log(plus5);
+
+            function sum5(val) {
+                return val +5
+            }
+            let results = arr.map(sum5);
+            console.log(results)
+
+            let arr1 = [1, 2, 3, 4, 5, 6] 
+            let even = arr1.filter(val => {
+                return val % 2 === 0;
+            })
+            console.log(even);
+
+            function getEven(val) {
+                return val % 2 === 0;
+            }
+            let even2 = arr1.filter(getEven);
+            console.log(even2)
+
+            let arr2 = [1, 2, 3, 4, 5];
+            let sum = arr2.reduce((acc, val) => {
+                return acc + val
+            })
+            console.log(sum);
+
+            let sum100 = arr2.reduce((acc, val) => {
+                return acc + val;
+            }, 100);
+            console.log(sum100);
+
+            let fruits = ["Banana", "Orange", "Apple", "Mango"];
+            let pop = fruits.pop();
+            console.log(pop);
+            console.log(fruits);
+        </script>
+    </body>
+
+</html>
