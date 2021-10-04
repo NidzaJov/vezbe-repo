@@ -1,5 +1,5 @@
 import { ListItem }  from'./List.js';
-import { mainToDoList, renderedList } from './main.js';
+import { mainTodoList, renderedList } from './main.js';
 
 let TodoForm = function(targetSelector) {
     let targetElement = document.querySelector(targetSelector);
@@ -13,7 +13,7 @@ let TodoForm = function(targetSelector) {
     addTaskButton.addEventListener('click', function() {
         let itemText = inputField.value;
         let itemObject = new ListItem(itemText);
-        mainToDoList.addItem(itemObject);
+        mainTodoList.addItem(itemObject);
         renderedList.renderList();
     });
 
