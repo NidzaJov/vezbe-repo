@@ -1,5 +1,5 @@
-import { ListItem }  from'./List.mjs';
-import { mainToDoList, renderedList } from('./main.js');
+import { ListItem }  from'./List.js';
+import { mainToDoList, renderedList } from('./main.mjs');
 
 let TodoForm = function(targetSelector) {
     let targetElement = document.querySelector(targetSelector);

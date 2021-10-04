@@ -1,6 +1,6 @@
-import { ListItem, List } from './List.mjs';
-import { TodoForm } from './TodoForm.mjs';
-import { TodoList } from './ToDoList.mjs';
+import { ListItem, List } from './List.js';
+import { TodoForm } from './TodoForm.js';
+import { TodoList } from './TodoList.js';
 
 
 let mainTodoList = new List();
