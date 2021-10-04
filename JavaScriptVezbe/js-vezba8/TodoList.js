@@ -16,7 +16,7 @@ let ToDoList = function(ItemList, targetSelector) {
             let deleteButton = document.createElement('button');
             deleteButton.textContent = 'X';
             deleteButton.addEventListener('click', function() {
-                mainToDoList.removeItems(item);
+                mainTodoList.removeItems(item);
                 renderedList.renderList();
             });
             listItem.appendChild(checkbox);
