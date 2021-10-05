@@ -13,7 +13,7 @@ if (postojecaLista) {
 } 
 
 let todoForm = new TodoForm('#todoForm', function(itemText) {
-    letItemObject = new ListItem(itemText);
+    let ItemObject = new ListItem(itemText);
     mainTodoList.addItem(ItemObject);
     listRenderer.renderList();
     LocalStorageObject.saveList(mainTodoList.listOfItems);
