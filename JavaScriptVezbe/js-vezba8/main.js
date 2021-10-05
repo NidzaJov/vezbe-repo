@@ -9,7 +9,7 @@ let mainTodoList = new List();
 const postojecaLista = LocalStorageObject.loadList();
 
 if (postojecaLista) {
-    mainTodoList.listofItems = postojecaLista;
+    mainTodoList.listOfItems = postojecaLista;
 } 
 //Na divu sa ID-jem #todoForm pravimo input polje za text i dugme 'Add Task' 
 //dodajemo event listenere za klik na dugme ili enter u polju, listener je f-ja
