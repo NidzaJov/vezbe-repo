@@ -1,16 +1,36 @@
 import { ListItem, List } from './List.js';
 import { TodoForm } from './TodoForm.js';
-import { TodoList } from './TodoList.js';
+import { TodoListRenderer } from './TodoListRenderer.js';
+import { LocalStorageObject } from './LocalStorageModule.js'
 
 
 let mainTodoList = new List();
 
-mainTodoList.addItem(new ListItem('Kupi hleb'));
-mainTodoList.addItem(new ListItem('Kupi mleko'));
-mainTodoList.addItem(new ListItem('Izbaci smece'));
+const postojecaLista = LocalStorageObject.loadList();
 
-let todoForm = new TodoForm('#todoForm');
-let renderedList = new TodoList(mainTodoList, '#todoList');
-renderedList.renderList();
+if (postojecaLista) {
+    mainTodoList.listofItems = postojecaLista;
+} 
 
-export { mainTodoList, renderedList };
+let todoForm = new TodoForm('#todoForm', function(itemText) {
+    letItemObject = new ListItem(itemText);
+    mainTodoList.addItem(ItemObject);
+    listRenderer.renderList();
+    LocalStorageObject.saveList(mainTodoList.listOfItems);
+});
+
+let listRenderer = new TodoListRenderer(
+    mainTodoList,
+    '#todoList',
+     function(item) {
+         mainTodoList.removeItem(item);
+         listRenderer.renderList();
+         LocalStorageObject.saveList(mainTodoList.listOfItems);
+     },
+     function(item) {
+        item.completed = !item.completed;
+        listRenderer.renderList();
+        LocalStorageObject.saveList(mainTodoList.listOfItems);
+     });
+
+listRenderer.renderList();
