@@ -4,7 +4,7 @@ const LocalStorageObject = {
         localStorage.setItem('todolist', objectToString)
     },
     loadList: function() {
-        const listAsString = localStorage.getItem('todoList');
+        const listAsString = localStorage.getItem('todolist');
         const converted = JSON.parse(listAsString);
         return converted;
     }
