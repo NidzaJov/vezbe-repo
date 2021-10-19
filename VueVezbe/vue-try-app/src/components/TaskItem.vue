@@ -1,6 +1,6 @@
 <template>
-    <div class='task-item'>
-        <div class="task item-content left-column" @click="toggleItem">
+    <div class="task-item" :class="taskItemClasses">
+        <div class="task-item-content left-column" @click="toggleItem">
             <input type='checkbox' :checked="taskItem.completed">
             <span>{{taskItem.text}}</span>
         </div>
@@ -22,9 +22,14 @@ export default {
       },
     },
   },
+  computed: {
+    taskItemClasses() {
+      return { 'completed-item': this.taskItem.completed };
+    },
+  },
   methods: {
     toggleItem() {
-      this.taskItem.comleted = !this.taskItem.completed;
+      this.taskItem.completed = !this.taskItem.completed;
     },
     removeItem() {
       this.$emit('remove-item');
@@ -44,6 +49,11 @@ export default {
     .task-item-buttons {
         display: flex;
         justify-content: center;
+    }
+    &.completed-item {
+        .task-item-content {
+            text-decoration: line-through;
+        }
     }
 }
 </style>
