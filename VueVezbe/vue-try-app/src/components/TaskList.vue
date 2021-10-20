@@ -5,7 +5,7 @@
         <label for="filterTasks">Show only unfinished tasks</label>
         <router-link to="/home/new" tag="button" class='new-button'>Add New </router-link>
     </div>
-    <TaskItem v-for="(task, idx) in listOfTasks" :key="idx"
+    <TaskItem v-for="task in tasks" :key="task.id"
         :taskItem="task" @remove-item="removeTask(task)"></TaskItem>
   </div>
 </template>
@@ -24,6 +24,12 @@ export default {
       unfinishedOnly: false,
     };
   },
+  props: {
+    searchString: {
+      type: String,
+      default: '',
+    },
+  },
   methods: {
     ...mapMutations('TasksStore', {
       removeTask: 'removeTask',
@@ -39,12 +45,21 @@ export default {
       unfinishedTasks: 'unfinishedTasks',
     }),
     tasks() {
+      let finalArray = [];
       if (!this.unfinishedOnly) {
-        return this.listOfTasks;
+        finalArray = this.listOfTasks;
         // return this.store.getters.unfinishedTasks;
-      }
+      } else {
       // return this.$store.getters.unfinishedTasks;
-      return this.unfinishedTasks;
+        finalArray = this.unfinishedTasks;
+      }
+
+      if (this.searchString.length > 0) {
+        finalArray = finalArray.filter((e) => e.text.toLowerCase()
+          .includes(this.searchString.toLowerCase()));
+      }
+
+      return finalArray;
     },
   },
 };
