@@ -1,31 +1,55 @@
 <template>
   <div id="app">
-    <input type="text" v-model="message"/>
-    <input type="checkbox" v-model="check">
-    <custom-button :myCount="count" @click-on-button="incrementCount"/>
-    <div>{{ message }}</div>
+    <h1 class="title">Tasks App</h1>
+    <task-form @add-task="addTaskHandler"/>
+    <task-list :tasks="tasksData"/>
   </div>
 </template>
 
 <script>
-import CustomButton from './components/CustomButton.vue';
+import TaskForm from './components/TaskForm.vue';
+import TaskList from './components/TaskList.vue';
+
+let idCounter = 0;
+const generateId = function () {
+  idCounter += 1;
+  return idCounter;
+};
 
 export default {
   name: 'App',
   components: {
-    CustomButton,
+    TaskForm, TaskList,
   },
   data() {
     return {
-      count: 0,
-      message: 'Testing Vue',
-      check: false,
+      tasksData: [
+        { id: generateId(), text: 'Buy milk', done: false },
+        { id: generateId(), text: 'Walk the dog', done: false },
+        { id: generateId(), text: 'Wash the dishes', done: false },
+      ],
     };
   },
   methods: {
-    incrementCount(eventData) {
-      this.count += eventData.amount;
+    addTaskHandler(info) {
+      const newTask = { id: generateId(), text: info.text, done: false };
+      this.taskData.push(newTask);
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "./styles/variables.scss";
+
+#app {
+  width: 600px;
+  border: 4px solid $border-color;
+  margin: auto;
+
+  .title {
+    text-align: center;
+  }
+}
+</style>
+<style lang="scss" src="./styles/global.scss"></style>
