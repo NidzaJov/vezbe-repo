@@ -18,6 +18,9 @@ export default new Vuex.Store({
       console.log();
       context.commit('addLogEntry', `ADD_TASK ${payload.text}`);
     },
+    UPDATE_TASK(context, payload) {
+      context.commit('updateTask', payload);
+    },
   },
   modules: {
     TasksStore,

@@ -3,6 +3,7 @@
     <div class="task-list-filter">
         <input type="checkbox" id="filterTasks" v-model="unfinishedOnly">
         <label for="filterTasks">Show only unfinished tasks</label>
+        <router-link to="/home/new" tag="button" class='new-button'>Add New </router-link>
     </div>
     <TaskItem v-for="(task, idx) in listOfTasks" :key="idx"
         :taskItem="task" @remove-item="removeTask(task)"></TaskItem>
@@ -54,6 +55,10 @@ export default {
   .task-list-filter {
     width: 100%;
     text-align: center;
+  }
+
+  .new-button {
+    margin-left: 4px;
   }
 }
 </style>

@@ -2,8 +2,7 @@
   <div id="app">
     <div class="container">
       <h1>To-Do List</h1>
-     <TaskForm @click-button=createTask></TaskForm >
-     <TaskList   :listOfTasks="tasks"></TaskList>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -12,8 +11,8 @@
 import ReactiveInput from './components/ReactiveInput.vue';
 import PersonComponent from './components/PersonComponent.vue';
 */
-import TaskForm from './components/TaskForm.vue';
-import TaskList from './components/TaskList.vue';
+// import TaskForm from './components/TaskForm.vue';
+// import TaskList from './components/TaskList.vue';
 
 export default {
   name: 'app',
@@ -37,7 +36,7 @@ export default {
   },
   components: {
     /* ReactiveInput, PersonComponent, */
-    TaskForm, TaskList,
+    /* TaskForm, TaskList, */
   },
   methods: {
     createTask(eventData) {
