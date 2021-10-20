@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    Hello, world!
-    <custom-button/>
-    <custom-button/>
-    <custom-button/>
+    <custom-button :myCount="count" @click-on-button="incrementCount"/>
   </div>
 </template>
 
@@ -15,9 +12,15 @@ export default {
   components: {
     CustomButton,
   },
+  data() {
+    return {
+      count: 0,
+    };
+  },
+  methods: {
+    incrementCount(eventData) {
+      this.count += eventData.amount;
+    },
+  },
 };
 </script>
-
-<style lang="less">
-
-</style>
