@@ -33,7 +33,7 @@ export default {
   methods: {
     addTaskHandler(info) {
       const newTask = { id: generateId(), text: info.text, done: false };
-      this.taskData.push(newTask);
+      this.tasksData.push(newTask);
     },
   },
 };
@@ -46,6 +46,9 @@ export default {
   width: 600px;
   border: 4px solid $border-color;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .title {
     text-align: center;
