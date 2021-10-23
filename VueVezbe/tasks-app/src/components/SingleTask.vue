@@ -86,6 +86,9 @@ export default {
   cursor: pointer;
   display: flex;
   align-items: center;
+  &:hover {
+    background-color: #DDDDDD
+  }
 
     .checkbox {
       margin-right: $padding-l;
