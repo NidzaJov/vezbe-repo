@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <h1 class="title">Tasks App</h1>
-    <task-form :search="searchParams"/>
-    <task-list />
+    <task-form/>
+    <task-list/>
   </div>
 </template>
 
@@ -14,44 +14,6 @@ export default {
   name: 'App',
   components: {
     TaskForm, TaskList,
-  },
-  data() {
-    return {
-      searchParams: {
-        searchText: '',
-        hideCompleted: false,
-      },
-    };
-  },
-  methods: {
-    /* addTaskHandler(info) {
-      const newTask = { id: generateId(), text: info.text, done: false };
-      this.tasksData.push(newTask);
-    }, */
-    /* deleteTaskHandler(taskId) {
-      const taskIdx = this.tasksData.findIndex((t) => t.id === taskId);
-      if (taskIdx >= 0) {
-        this.tasksData.splice(taskIdx, 1);
-      }
-    }, */
-  },
-  computed: {
-    /* filteredTasks() {
-      const searchedTasks = this.tasksData
-        .filter((task) => {
-          const taskTextLowercase = task.text.toLowerCase();
-          const searchTextLowercase = this.searchParams.searchText.toLowerCase();
-          const hasSearchText = taskTextLowercase.indexOf(searchTextLowercase) >= 0;
-
-          return hasSearchText;
-        });
-      if (this.searchParams.hideCompleted) {
-        const notCompleted = searchedTasks.filter((task) => !task.done);
-
-        return notCompleted;
-      }
-      return searchedTasks;
-    }, */
   },
 };
 </script>

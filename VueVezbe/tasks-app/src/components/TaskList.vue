@@ -1,12 +1,12 @@
 <template>
 <div class="task-list">
-  <single-task v-for="task in tasksData" :key="task.id" :task="task" @delete="deleteTask"/>
+  <single-task v-for="task in filteredTasks" :key="task.id" :task="task" />
 </div>
 
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 import SingleTask from './SingleTask.vue';
 
 export default {
@@ -14,12 +14,7 @@ export default {
   components:
     { SingleTask },
   computed: {
-    ...mapState('tasks', ['tasksData']),
-  },
-  methods: {
-    deleteTask(taskId) {
-      this.$emit('delete', taskId);
-    },
+    ...mapGetters('tasks', ['filteredTasks']),
   },
 };
 </script>
