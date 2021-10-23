@@ -1,10 +1,25 @@
 <template>
     <div class="single-task ps" @click="toggleDone">
       <input type="checkbox" class="check-box" v-model="task.done"/>
-      <span class="text" :class="spanClass">
+      <span
+      class="text"
+      :class="spanClass"
+      v-if="!editMode">
         {{task.text}}
       </span>
-      <my-button class="delete" @click="handleDelete" :stop="true">X</my-button>
+      <input
+        class="text"
+        v-if="editMode"
+        type="text"
+        v-model="task.text"
+        @keyup.enter ="editMode = false"
+        @click.stop/>
+      <my-button
+          :stop="true"
+          @click="editMode = true">Edit</my-button>
+      <my-button
+      @click="handleDelete"
+      :stop="true">X</my-button>
         </div>
 </template>
 
@@ -20,6 +35,11 @@ export default {
     task: {
       type: Object,
     },
+  },
+  data() {
+    return {
+      editMode: false,
+    };
   },
   methods: {
     toggleDone() {
