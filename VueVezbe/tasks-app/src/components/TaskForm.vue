@@ -17,9 +17,10 @@
         <input
           type="text"
           placeholder="Search..."
-          class="task-text search-text ps"/>
+          class="task-text search-text ps"
+          v-model="search.searchText"/>
         <label class="filter">
-          <input type="checkbox">
+          <input type="checkbox" v-model="search.hideCompleted">
           Hide
         </label>
       </div>
@@ -37,8 +38,14 @@ export default {
   data() {
     return {
       taskText: '',
-      showSearch: true,
+      showSearch: false,
     };
+  },
+  props: {
+    search: {
+      type: Object,
+      required: true,
+    },
   },
   methods: {
     addTaskHandler() {
@@ -69,6 +76,9 @@ export default {
   }
   .form-add {
     margin-bottom: $padding-l;
+  }
+  .form-search {
+    align-items: center;
   }
 }
 
