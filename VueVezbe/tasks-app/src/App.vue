@@ -1,20 +1,14 @@
 <template>
   <div id="app">
     <h1 class="title">Tasks App</h1>
-    <task-form @add-task="addTaskHandler" :search="searchParams"/>
-    <task-list :tasks="filteredTasks" @delete="deleteTaskHandler"/>
+    <task-form :search="searchParams"/>
+    <task-list />
   </div>
 </template>
 
 <script>
 import TaskForm from './components/TaskForm.vue';
 import TaskList from './components/TaskList.vue';
-
-let idCounter = 0;
-const generateId = function () {
-  idCounter += 1;
-  return idCounter;
-};
 
 export default {
   name: 'App',
@@ -27,27 +21,22 @@ export default {
         searchText: '',
         hideCompleted: false,
       },
-      tasksData: [
-        { id: generateId(), text: 'Buy milk', done: false },
-        { id: generateId(), text: 'Walk the dog', done: false },
-        { id: generateId(), text: 'Wash the dishes', done: false },
-      ],
     };
   },
   methods: {
-    addTaskHandler(info) {
+    /* addTaskHandler(info) {
       const newTask = { id: generateId(), text: info.text, done: false };
       this.tasksData.push(newTask);
-    },
-    deleteTaskHandler(taskId) {
+    }, */
+    /* deleteTaskHandler(taskId) {
       const taskIdx = this.tasksData.findIndex((t) => t.id === taskId);
       if (taskIdx >= 0) {
         this.tasksData.splice(taskIdx, 1);
       }
-    },
+    }, */
   },
   computed: {
-    filteredTasks() {
+    /* filteredTasks() {
       const searchedTasks = this.tasksData
         .filter((task) => {
           const taskTextLowercase = task.text.toLowerCase();
@@ -62,7 +51,7 @@ export default {
         return notCompleted;
       }
       return searchedTasks;
-    },
+    }, */
   },
 };
 </script>
