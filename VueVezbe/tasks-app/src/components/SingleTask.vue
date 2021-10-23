@@ -11,12 +11,17 @@
         class="text"
         v-if="editMode"
         type="text"
-        v-model="task.text"
-        @keyup.enter ="editMode = false"
+        v-model="editedText"
+        @keyup.enter ="saveEdit"
         @click.stop/>
       <my-button
           :stop="true"
-          @click="editMode = true">Edit</my-button>
+          v-show="!editMode"
+          @click="startEdit">Edit</my-button>
+        <my-button
+          :stop="true"
+          v-show="editMode"
+          @click="cancelEdit">Cancel</my-button>
       <my-button
       @click="handleDelete"
       :stop="true">X</my-button>
@@ -39,6 +44,7 @@ export default {
   data() {
     return {
       editMode: false,
+      editedText: '',
     };
   },
   methods: {
@@ -47,6 +53,19 @@ export default {
     },
     handleDelete() {
       this.$emit('delete', this.task.id);
+    },
+    startEdit() {
+      this.editMode = true;
+      this.editedText = this.task.text;
+    },
+    cancelEdit() {
+      this.editMode = false;
+      this.editedText = '';
+    },
+    saveEdit() {
+      this.editMode = false;
+      this.task.text = this.editedText;
+      this.editedText = '';
     },
   },
   computed: {
