@@ -18,13 +18,13 @@
           type="text"
           placeholder="Search..."
           class="task-text search-text ps"
-          v-model="searchText"/>
+          v-model="searchText"
+          @keyup="changeInputHandler"/>
         <label class="filter">
-          <input type="checkbox" v-model="hideCompleted">
+          <input type="checkbox" v-model="hideCompleted" @change="changeInputHandler">
           Hide
         </label>
 
-        <my-button @click="startSearch">Search</my-button>
       </div>
     </div>
 </template>
@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     ...mapActions('tasks', ['addTask', 'setSearchParams']),
-    startSearch() {
+    changeInputHandler() {
       this.setSearchParams({
         searchText: this.searchText,
         hideCompleted: this.hideCompleted,
