@@ -1,7 +1,28 @@
 <template>
     <div class="task-form pl">
-      <input type="text" class="task-text ps" v-model="taskText" @keyup.enter = "addTaskHandler">
-      <my-button @click="addTaskHandler">Add</my-button>
+      <div class="form-add">
+        <input
+        type="text"
+        class="task-text ps"
+        v-model="taskText"
+        @keyup.enter ="addTaskHandler"
+        placeholder="Add a new task">
+        <my-button @click="addTaskHandler">Add</my-button>
+        <my-button @click="showSearch = !showSearch">
+          <span v-show="!showSearch"></span>
+          <span v-show="showSearch">V</span>
+        </my-button>
+      </div>
+      <div class="form-search" v-if="showSearch">
+        <input
+          type="text"
+          placeholder="Search..."
+          class="task-text search-text ps"/>
+        <label class="filter">
+          <input type="checkbox">
+          Hide
+        </label>
+      </div>
     </div>
 </template>
 
@@ -16,6 +37,7 @@ export default {
   data() {
     return {
       taskText: '',
+      showSearch: true,
     };
   },
   methods: {
@@ -33,11 +55,20 @@ export default {
 .task-form {
   width: $default-width;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   .task-text {
     color: $text-color;
     border-color: $border-color;
     flex-grow: 1;
+  }
+  .form-add,
+  .form-search {
+    width: 100%;
+    display: flex;
+  }
+  .form-add {
+    margin-bottom: $padding-l;
   }
 }
 
