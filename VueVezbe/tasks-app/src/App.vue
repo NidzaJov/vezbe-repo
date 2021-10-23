@@ -2,7 +2,7 @@
   <div id="app">
     <h1 class="title">Tasks App</h1>
     <task-form @add-task="addTaskHandler" :search="searchParams"/>
-    <task-list :tasks="filteredTasks"/>
+    <task-list :tasks="filteredTasks" @delete="deleteTaskHandler"/>
   </div>
 </template>
 
@@ -38,6 +38,12 @@ export default {
     addTaskHandler(info) {
       const newTask = { id: generateId(), text: info.text, done: false };
       this.tasksData.push(newTask);
+    },
+    deleteTaskHandler(taskId) {
+      const taskIdx = this.tasksData.findIndex((t) => t.id === taskId);
+      if (taskIdx >= 0) {
+        this.tasksData.splice(taskIdx, 1);
+      }
     },
   },
   computed: {

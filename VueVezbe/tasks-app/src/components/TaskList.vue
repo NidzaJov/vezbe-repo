@@ -19,10 +19,7 @@ export default {
   },
   methods: {
     deleteTask(taskId) {
-      const taskIdx = this.tasks.findIndex((t) => t.id === taskId);
-      if (taskIdx >= 0) {
-        this.tasks.splice(taskIdx, 1);
-      }
+      this.$emit('delete', taskId);
     },
   },
 };
