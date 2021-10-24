@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <h1 class="title">Tasks App</h1>
     <task-form/>
     <task-list/>
@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import TaskForm from './components/TaskForm.vue';
 import TaskList from './components/TaskList.vue';
 
@@ -14,6 +15,12 @@ export default {
   name: 'App',
   components: {
     TaskForm, TaskList,
+  },
+  created() {
+    this.getTasksApi();
+  },
+  methods: {
+    ...mapActions('tasks', ['getTasksApi']),
   },
 };
 </script>
