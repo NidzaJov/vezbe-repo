@@ -1,11 +1,3 @@
-/*
-let idCounter = 0;
-const generateId = function () {
-  idCounter += 1;
-  return idCounter;
-};
-*/
-
 const APIURL = 'http://localhost:3000';
 
 export default {
@@ -15,23 +7,10 @@ export default {
       searchText: '',
       hideCompleted: false,
     },
-    tasksData: null /* [
-      { id: generateId(), text: 'Buy milk', done: false },
-      { id: generateId(), text: 'Walk the dog', done: false },
-      { id: generateId(), text: 'Wash the dishes', done: false },
-    ] */,
+    tasksData: null,
   },
   actions: {
-    /*
-    deleteTask(context, taskId) {
-      const taskIdx = context.state.tasksData.findIndex((t) => t.id === taskId);
-      if (taskIdx >= 0) {
-        context.commit('spliceTask', taskIdx);
-      }
-    },
-    */
     async getTasksApi(context) {
-      // const response = await fetch(`${APIURL}/tasks`);
       context.commit('setAllTasks', null);
       let dynamicURL = `${APIURL}/tasks?`;
       if (context.state.searchParams.hideCompleted) {
@@ -63,17 +42,9 @@ export default {
         body: JSON.stringify(task),
       });
       if (response.ok) {
-        context.dispatch('getTaskApi');
+        context.dispatch('getTasksApi');
       }
     },
-    /*
-    addTask(context, text) {
-      const newTask = {
-        id: generateId(), text, done: false,
-      };
-      context.commit('pushTask', newTask);
-    },
-    */
     async addTask(context, text) {
       const newTask = { text, done: false };
       const response = await fetch(`${APIURL}/tasks`, {
@@ -84,7 +55,7 @@ export default {
         body: JSON.stringify(newTask),
       });
       if (response.ok) {
-        context.dispatch('getTasksAPI');
+        context.dispatch('getTasksApi');
       }
     },
     setSearchParams(context, params) {
@@ -106,22 +77,4 @@ export default {
       state.tasksData = tasks;
     },
   },
-  /*
-  getters: {
-    filteredTasks(state) {
-      const searchedTasks = state.tasksData
-        .filter((task) => {
-          const taskTextLowerCase = task.text.toLowerCase();
-          const searchTextLowerCase = state.searchParams.searchText.toLowerCase();
-          const hasSearchText = taskTextLowerCase.indexOf(searchTextLowerCase) >= 0;
-          return hasSearchText;
-        });
-      if (state.searchParams.hideCompleted) {
-        const notCompleted = searchedTasks.filter((tasks) => !tasks.done);
-        return notCompleted();
-      }
-      return searchedTasks;
-    },
-  },
-  */
 };

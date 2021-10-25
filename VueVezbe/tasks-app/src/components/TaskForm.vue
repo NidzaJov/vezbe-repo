@@ -24,7 +24,6 @@
           <input type="checkbox" v-model="hideCompleted" @change="changeInputHandler">
           Hide
         </label>
-
       </div>
     </div>
 </template>
@@ -57,6 +56,10 @@ export default {
     addTaskHandler() {
       this.addTask(this.taskText);
       this.taskText = '';
+      this.goToList();
+    },
+    goToList() {
+      this.$router.push({ name: 'TaskList' });
     },
   },
 };

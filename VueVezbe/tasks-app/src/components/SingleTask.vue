@@ -1,5 +1,5 @@
 <template>
-    <div class="single-task ps" @click="toggleDone">
+    <div class="single-task ps" @click="toggleDone" v-if="task">
       <input type="checkbox" class="check-box" v-model="task.done"/>
       <span
       class="text"
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import MyButton from './MyButton.vue';
 
 export default {
@@ -38,14 +38,18 @@ export default {
     MyButton,
   },
   props: {
-    task: {
-      type: Object,
+    id: {
+      type: Number,
+      required: true,
+    },
+    text: {
+      type: String,
+      required: false,
     },
   },
   data() {
     return {
-      editMode: false,
-      editedText: '',
+      editedText: this.text,
     };
   },
   methods: {
@@ -62,28 +66,40 @@ export default {
       this.deleteTask(this.task.id);
     },
     startEdit() {
-      this.editMode = true;
-      this.editedText = this.task.text;
+      this.$router.push({ name: 'EditTask', params: { id: this.task.id, text: this.task.text } });
     },
     cancelEdit() {
-      this.editMode = false;
-      this.editedText = '';
+      this.$router.push({ name: 'TaskList' });
     },
     saveEdit() {
       this.editTask({
         id: this.task.id,
-        text: this.task.editedText,
+        text: this.editedText,
         done: this.task.done,
       });
-      this.editMode = false;
       this.editedText = '';
+      this.$router.push({ name: 'TaskList' });
     },
   },
   computed: {
+    ...mapState('tasks', ['tasksData']),
     spanClass() {
       return {
         'is-checked': this.task.done,
       };
+    },
+    task() {
+      if (this.tasksData) {
+        const foundTask = this.tasksData.find((t) => t.id === this.id);
+        return foundTask;
+      }
+      return false;
+    },
+    editMode() {
+      if (this.$route.name === 'EditTask') {
+        return true;
+      }
+      return false;
     },
   },
 };
