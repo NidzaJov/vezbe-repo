@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div id="app">
+    <router-view></router-view>
     <h1 class="title">Tasks App</h1>
     <task-form/>
     <task-list/>
