@@ -1,0 +1,14 @@
+{
+  "name": "react-vezba2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "nodemon ./index.js"
+  },
+  "author": "NJ",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
