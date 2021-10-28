@@ -17,9 +17,9 @@ module.exports = async function(req, res, next) {
 
         if (!userId) throw tokenError;
 
-        res.user = await users.findById(userId);
+        req.user = await users.findById(userId);
 
-        if(!res.user) throw userNotFoundError;
+        if(!req.user) throw userNotFoundError;
         next()
     } catch (e) {
         res.status(401);
