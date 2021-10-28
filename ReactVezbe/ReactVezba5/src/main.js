@@ -1,6 +1,7 @@
 const database = require('./modules/database');
 const config = require('./config');
 
+
 (async () => {
     console.info('Starting the app...');
     console.info('Connecting to the DB...');
@@ -9,7 +10,10 @@ const config = require('./config');
 
     console.info('Creating the express app...');
     const express = require('express');
+    const router = require('./router');
     const app = express();
+    console.info('Registering the routes...');
+    app.use(router.path, router.router);
 
     console.info('Starting the app...');
     app.listen(config.app.port, () => {

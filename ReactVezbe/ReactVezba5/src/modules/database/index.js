@@ -26,7 +26,8 @@ class Database {
             return this.connection.db(config.db.dbname);
         }
         catch(e) {
-            console.error('Database unavailable:', e)
+            console.error('Database unavailable:', e.stack);
+            return null;
         }
     }
 }
