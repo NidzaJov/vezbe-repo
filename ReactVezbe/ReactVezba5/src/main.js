@@ -1,5 +1,6 @@
 const database = require('./modules/database');
 const config = require('./config');
+const cookieParser = require('cookie-parser');
 
 
 (async () => {
@@ -13,6 +14,8 @@ const config = require('./config');
     const router = require('./router');
     const app = express();
     console.info('Registering the routes...');
+    
+    app.use(cookieParser(config.auth.secret));
     app.use(router.path, router.router);
 
     console.info('Starting the app...');
