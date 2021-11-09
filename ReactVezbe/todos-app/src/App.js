@@ -4,11 +4,14 @@ import { useCounter } from './hooks/useCounter'
 
 export function App() {
   
-  const { counter, decrementCounter } = useCounter();
+  const { counter, decrementCounter, incrementCounter } = useCounter(5);
 
     return (
       <>
         <Counter counterValue={ counter }/>
+        <CustomButton isClicked={incrementCounter}>
+          Increment
+        </CustomButton>
         <CustomButton isClicked={decrementCounter}>
           Decrement
         </CustomButton>
