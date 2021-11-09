@@ -6,6 +6,9 @@ export function App() {
   
   const { counter, decrementCounter, incrementCounter } = useCounter(5);
 
+  const divisibleByTen = (counter % 10) === 0;
+  const message = divisibleByTen ? (<div>Number is divisible by 10.</div>): null
+
     return (
       <>
         <Counter counterValue={ counter }/>
@@ -15,6 +18,7 @@ export function App() {
         <CustomButton isClicked={decrementCounter}>
           Decrement
         </CustomButton>
+        {message}
       </>
     )
 
