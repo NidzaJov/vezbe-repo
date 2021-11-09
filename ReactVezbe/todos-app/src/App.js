@@ -1,34 +1,37 @@
 import { Component } from 'react';
+import { Counter } from './components/Counter';
+import { CustomButton } from './components/CustomButton';
 
 export class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      person: {
-        firstName: 'John',
-        lastName: 'Doe',
-      },
       counter: 0,
     };
   }
 
+  componentDidMount() {
+    console.log('App mounted');
+  }
+
   buttonClickHandler() {
     this.setState({
-      person: {
-        firstName: 'Jane'
-      }
+      counter: this.state.counter + 1
     });
   }
 
   render() {
-    console.log('Component rendering');
+    console.log('App rendering');
 
     return (
       <div>
-        Counter value: { this.state.counter }
-        <button onClick={ () => this.buttonClickHandler() }>Increment</button>
-        <div>{ `${this.state.person.firstName} ${this.state.person.lastName}` }</div>
+        <Counter counterValue={ this.state.counter }/>
+        <CustomButton isClicked={() => this.buttonClickHandler()}>
+          <div>GO1!</div>
+          <div>GO2!</div>
+          <div>GO3!</div>
+        </CustomButton>
       </div>
     )
   }
