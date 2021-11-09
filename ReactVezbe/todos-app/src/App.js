@@ -1,6 +1,6 @@
 import { Counter } from './components/Counter';
 import { CustomButton } from './components/CustomButton';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function App() {
   
@@ -9,10 +9,14 @@ export function App() {
   });
 
   const incrementCounter = () => {
-    this.setState({
+    setCounterState({
       counter: counterState.counter + 1
     });
   };
+
+  useEffect(() => {
+    console.log('Use effect hook ran: ', counterState.counter)
+  })
 
     return (
       <>

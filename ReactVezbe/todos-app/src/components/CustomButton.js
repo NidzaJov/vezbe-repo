@@ -1,6 +1,6 @@
 export function CustomButton(props) {
         return (
-            <button onClick={this.props.isClicked}>
+            <button onClick={props.isClicked}>
                 {props.children}
             </button>
         )
