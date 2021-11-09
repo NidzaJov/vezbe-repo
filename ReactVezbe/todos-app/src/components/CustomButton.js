@@ -1,13 +1,7 @@
-import { Component } from "react";
-
-export class CustomButton extends Component {
-    render() {
+export function CustomButton(props) {
         return (
             <button onClick={this.props.isClicked}>
-                <div>Before children</div>
-                { this.props.children }
-                <div>After children</div>
+                {props.children}
             </button>
         )
-    }
 }

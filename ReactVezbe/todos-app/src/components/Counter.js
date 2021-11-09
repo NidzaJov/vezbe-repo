@@ -1,11 +1,7 @@
-import { Component} from 'react';
-
-export class Counter extends Component {
-    render() {
+export function Counter(props) {
         return (
             <div>
-                Counter: {this.props.counterValue}
+                Counter: {props.counterValue}
             </div>
         );
-    }
 }
