@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../actions/todosActions';
 
-export default function TodoForm(props) {
+export default function TodoForm() {
     const [textValue, setTextValue] = useState('');
+    const dispatch = useDispatch();
 
     const handleAddTodo = () => {
-        props.addTodoCallback(textValue);
-        setTextValue('')
+        dispatch(addTodo(textValue))
+        setTextValue('');
     };
 
     return (
