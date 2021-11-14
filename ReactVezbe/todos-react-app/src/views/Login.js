@@ -9,28 +9,13 @@ export  default function Login() {
     const loggedIn = useSelector(state => state.auth.loggedIn);
     const logginError = useSelector(state => state.auth.error);
 
-    const [credentials, setCredentials] = useState({
-        email: '',
-        password: ''
-    });
 
-    const setEmail = (value) => {
-        setCredentials({
-            ...credentials,
-            email: value,
-        })
-    }
-
-    const setPassword = (value) => {
-        setCredentials({
-            ...credentials,
-            password: value
-        })
-    }
+   const [ email, setEmail] = useState('');
+   const [ password, setPassword ] = useState('');
 
     const loginHandler = () => {
-        console.log('Current credentials: ', credentials);
-        dispatch(logIn(credentials))
+        console.log('Current credentials', email, password)
+        dispatch(logIn(email, password))
     }
 
     if (loggedIn) {
@@ -41,12 +26,12 @@ export  default function Login() {
         <MainLayout title={'Login'}>
             <label>
                 <span>Email</span>
-                <input type="text" value={credentials.email}
+                <input type="text" value={email}
                 onChange={(e) => {setEmail(e.target.value)}} /> 
            </label>
            <label>
                <span>Password</span>
-               <input type="password" value={credentials.password}
+               <input type="password" value={password}
                onChange={(e) => {setPassword(e.target.value)}} />
            </label>
            
