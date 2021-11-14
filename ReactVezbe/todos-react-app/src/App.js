@@ -2,6 +2,7 @@ import TodoItem from './components/TodoItem';
 import TodoForm from './components/TodoForm';
 import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import Login from './views/Login';
 
 export default function App() {
   
@@ -21,7 +22,7 @@ export default function App() {
       
       <Switch>
         <Route path="/login">
-          Login form
+          <Login/>
         </Route>
         <Route path='/register'>
           Register
