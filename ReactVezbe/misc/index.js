@@ -20,13 +20,23 @@ function printName() {
     console.log(this.name);
 }
 
+const printNameArrow = () => {
+    console.log('Arrow - My name is ', this.name)
+}
+
 const trainer = {
     name: 'Aleksandar',
     printName,
+    printNameArrow,
+    printNameArrowInner: () => {
+        console.log("Inner Arrow My name is ", this.name)
+    }
 }
 
 trainer.printName();
 printName();
+trainer.printNameArrow();
+trainer.printNameArrowInner();
 
 const myObj = {message: 'Hello this!!!'}
 myFunction.call(myObj, 10);
