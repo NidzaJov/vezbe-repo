@@ -54,7 +54,9 @@ class Car {
         console.log('Car info', this.brand, this.fuelType)
     }
 
-    carBrand = () => console.log(this.brand);
+    reprintInfo = () => {
+        console.log('Car info', this.brand, this.fuelType)
+    }
  }
 
  const myCar = new Car('Ford' , 'Diesel');
@@ -62,6 +64,16 @@ class Car {
 
  myCar.printInfo();
  yourCar.printInfo();
- myCar.carBrand();
+ myCar.reprintInfo();
  myCar.car = yourCar;
- myCar.car.carBrand();
+ myCar.car.reprintInfo();
+ const printThis = () => console.log(this);
+ printThis();
+
+ function outerFunction() {
+     printThis();
+     const reprintThis = () => console.log(this);
+     reprintThis()
+ }
+
+ outerFunction();
