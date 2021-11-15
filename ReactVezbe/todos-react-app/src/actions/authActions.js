@@ -1,6 +1,6 @@
 //import { config } from '../config';
 import authService from '../services/authService';
-import { LOG_IN, LOG_IN_ERROR, REGISTRATION_FAILED, REGISTRATION_SUCCESSFULL } from './types';
+import { LOGOUT, LOG_IN, LOG_IN_ERROR, REGISTRATION_FAILED, REGISTRATION_SUCCESSFULL } from './types';
 
 export function logIn(credentials) {
     return async (dispatch) => {
@@ -15,6 +15,15 @@ export function logIn(credentials) {
                 payload: "Bad Credentials. Please try again."
             })
         }
+    }
+}
+
+export function logout() {
+    return (dispatch) => {
+        authService.logout();
+        dispatch({
+            type: LOGOUT,
+        })
     }
 }
 
