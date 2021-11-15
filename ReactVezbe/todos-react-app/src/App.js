@@ -3,6 +3,7 @@ import TodoForm from './components/TodoForm';
 import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './views/Login';
+import Register from './views/MainLayout';
 
 export default function App() {
   
@@ -15,6 +16,7 @@ export default function App() {
   )
 
   const loggedIn = useSelector(state => state.auth.loggedIn);
+  const registrationStatus = useSelector(state => state.auth.registrationStatus);
 
   return (
     <>
@@ -25,7 +27,11 @@ export default function App() {
           <Login/>
         </Route>
         <Route path='/register'>
-          Register
+          {
+            registrationStatus
+            ? <Redirect to="/login"/>
+            : <Register/>
+          }
         </Route>
 
         <Route path="/todos">

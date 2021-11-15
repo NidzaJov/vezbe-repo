@@ -1,4 +1,6 @@
 export const ADD_TODO = "ADD_TODO";
-
 export const LOG_IN = "LOG_IN";
 export const LOG_IN_ERROR = 'LOG_IN_ERROR';
+export const REGISTRATION_FAILED = 'REGISTRATION_FAILED';
+export const REGISTRATION_SUCCESSFULL = 'REGISTRATION_SUCCESSFULL';
+
