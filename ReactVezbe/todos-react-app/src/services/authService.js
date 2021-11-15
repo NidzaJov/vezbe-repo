@@ -1,26 +1,11 @@
 import { config } from '../config';
+import { FetchService } from './fetchService';
 
-async function postRequest(url, payload) {
-    return await fetch(`${config.API_URL}/${url}`, {
-        method: 'POST',
-        headers: {
-            'Content_Type': 'application/json'
-        },
-        body: JSON.stringify(payload),
-        credentials: 'include',
-    })
-}
 
-async function getRequest(url) {
-    return await fetch(`${config.API_URL}/${url}`, {
-        method: 'GET',
-        credentials: 'include',
-    })
-}
 
 class AuthService {
     async login(credentials) {
-        const result = await postRequest('login', credentials)
+        const result = await FetchService.postRequest('login', credentials)
 
         if (result.ok) {
             return true;
@@ -31,7 +16,7 @@ class AuthService {
     }
 
     async register(payload) {
-        const result = await postRequest('register', payload);
+        const result = await FetchService.postRequest('register', payload);
         if (result.ok) {
             return true;
         }
@@ -41,7 +26,7 @@ class AuthService {
     }
 
     async logout() {
-        await getRequest('logout')
+        await FetchService.getRequest('logout')
     }
 }
 

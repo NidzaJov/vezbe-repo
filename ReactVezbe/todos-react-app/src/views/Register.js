@@ -30,11 +30,11 @@ export default function Register() {
             </label>
             <label>
                 Last name:
-                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                <input type="text" value={lastName} onChange={(e) => { setLastName(e.target.value) }} />
             </label>
             <label>
                 Email:
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} />
             </label>
             <label>
                 Password: 

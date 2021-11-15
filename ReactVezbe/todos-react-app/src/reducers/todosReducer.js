@@ -1,11 +1,7 @@
-import  { ADD_TODO } from '../actions/types';
+import  { ADD_TODO, GET_ALL_TODOS } from '../actions/types';
 
 const initialState = {
-    list: [
-        {text: 'Buy milk', done: false},
-        {text: 'Buy bread', done: false},
-        {text: 'Buy socks', done: false},
-    ]
+    list: []
 };
 
 export default function todosReducer(state=initialState, action) {
@@ -17,6 +13,11 @@ export default function todosReducer(state=initialState, action) {
                 ...state,
                 list: newList
             };
+        case GET_ALL_TODOS:
+            return {
+                ...state,
+                list: action.payload
+            }
         default:
             return state;
             
