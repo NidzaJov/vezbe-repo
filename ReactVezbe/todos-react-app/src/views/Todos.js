@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../actions/authActions";
 import MainLayout from "./MainLayout";
 import { getAllTodos } from '../actions/todosActions';
+import { TodoList } from "../components/TodoList"
 
 export default function Todos() {
     const dispatch = useDispatch();
@@ -14,8 +15,7 @@ export default function Todos() {
 
     return (
         <MainLayout title={'My Todos'} buttonText={'Logout'} callback={() => { dispatch(logout()) }}>
-           Todos component
-           {JSON.stringify(list)}
+           {list.map(todoList => <TodoList todoList={todoList}/>)}
         </MainLayout>
     )
 }
