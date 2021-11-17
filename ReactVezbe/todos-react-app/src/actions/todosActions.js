@@ -7,11 +7,12 @@ export function addTodo(todoText) {
 
     return async (dispatch) => {
         try {
+            /*
             dispatch({
                 type: ADD_TODO,
                 payload: todoText
-            });
-            await todosService.addTodo(todoText)
+            }); */
+            await todosService.addTodo(todoText);
             await getAllTodos() (dispatch);
         } catch(e) {
 
@@ -33,3 +34,15 @@ export function getAllTodos() {
         }
     } 
 }
+
+export function deleteTodo(id) {
+    return async (dispatch) => {
+        try {
+            await todosService.deleteTodo(id);
+            await getAllTodos() (dispatch);
+        }
+        catch(e) {
+
+        }
+    }
+} 

@@ -29,6 +29,17 @@ class FetchService {
             credentials: 'include'
         })
     }
+
+    static async deleteRequest(url, payload) {
+        return await fetch(`${config.API_URL}/${url}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload),
+            credentials: 'include'
+        })
+    }
 }
 
 export { FetchService };

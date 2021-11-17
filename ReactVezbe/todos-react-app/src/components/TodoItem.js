@@ -1,4 +1,12 @@
+import { deleteTodo } from "../actions/todosActions";
+import { useDispatch } from "react-redux";
+
 export default function TodoItem(props) {
+    const dispatch = useDispatch();
+    const handleDeleteTodo = () => {
+        dispatch(deleteTodo(props.todo._id))
+    }
+
     return (
         <div>
             <input 
@@ -8,7 +16,7 @@ export default function TodoItem(props) {
             />
             <span>{props.todo.title}</span>
             <button 
-            // onClick={props.deleteItem}
+            onClick={handleDeleteTodo}
             >X
             </button>
         </div>

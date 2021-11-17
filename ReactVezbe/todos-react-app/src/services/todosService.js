@@ -12,12 +12,23 @@ class TodosService {
     }
 
     async addTodo(payload) {
-        const result = await FetchService.postRequest('todos', payload)
+        const result = await FetchService.postRequest('todos', { title: payload })
         if (result.ok) {
             return true;
         }
         else {
             throw new Error('Creating todo failed');
+        }
+    }
+
+    async deleteTodo(payload) {
+        const result = await FetchService.deleteRequest('todos', { id: payload });
+
+        if (result.ok) {
+            return true;
+        }
+        else {
+            throw new Error('Deleting todo failed');
         }
     }
 }

@@ -65,8 +65,27 @@ todosRouter.patch('/', async function(req, res) {
         } else {
             res.sendStatus(400);
         }
-    } catch {
+    } catch (e) {
         console.error('Todo not updated', e)
+        res.sendStatus(400);
+    }
+})
+
+todosRouter.delete('/', async function(req, res) {
+    try{
+        const { id } = req.body;
+        const todo = await todosService.findbyId(req.user._id, id)
+        console.info('Delete todo got: ', todo);
+        if (todo) {
+            await todosService.delete(todo._id);
+            res.sendStatus(204);
+        } else {
+            res.sendStatus(404);
+        }
+        
+    }
+    catch (e) {
+        console.error('Todo not deleted', e);
         res.sendStatus(400);
     }
 })

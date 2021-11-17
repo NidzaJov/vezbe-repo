@@ -78,7 +78,11 @@ class TodosService {
             [operator]: { sharedWith: new ObjectID(userId) }
         });
     }
-    async delete() {}
+    async delete(todoId) {
+        await TodosService.collection.deleteOne({
+            _id: new ObjectID(todoId)
+        });
+    }
 
     async findbyId(ownerId, todoId) {
         return await TodosService.collection.findOne({
