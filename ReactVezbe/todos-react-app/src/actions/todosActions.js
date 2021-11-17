@@ -3,13 +3,19 @@ import todosService  from '../services/todosService'
 
 export function addTodo(todoText) {
 
-    const actualTodoText = todoText.toUpperCase();
+    //const actualTodoText = todoText.toUpperCase();
 
-    return (dispatch) => {
-        dispatch({
-            type: ADD_TODO,
-            payload: actualTodoText
-        });
+    return async (dispatch) => {
+        try {
+            dispatch({
+                type: ADD_TODO,
+                payload: todoText
+            });
+            await todosService.addTodo(todoText)
+            await getAllTodos() (dispatch);
+        } catch(e) {
+
+        }
     };
 }
 

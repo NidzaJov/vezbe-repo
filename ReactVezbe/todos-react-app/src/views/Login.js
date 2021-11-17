@@ -15,7 +15,7 @@ export  default function Login() {
 
     const loginHandler = () => {
         console.log('Current credentials', email, password)
-        dispatch(logIn(email, password))
+        dispatch(logIn({email, password}))
     }
 
     if (loggedIn) {

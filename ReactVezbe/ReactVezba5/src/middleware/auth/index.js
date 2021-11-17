@@ -9,7 +9,7 @@ const userNotFoundError = new Error('UserNotFoundError');
 
 module.exports = async function(req, res, next) {
     try{
-        const authCookie = req.cookies[config.auth.authCookieName];
+        const authCookie = req.cookies.auth/*[config.auth.authCookieName]*/;
 
         if (!authCookie) throw badCookieError;
 

@@ -5,8 +5,8 @@ export function TodoList(props) {
 
     return (
         <div>
-            <h1>{list.title} - {list.lastModified}</h1>
-            {list.items.map(item => <TodoItem todo={item}/>)}
+            <h1></h1>
+            {list.map((item, index) => <TodoItem todo={item} key={index}/>)}
         </div>
     )
 }

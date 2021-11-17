@@ -6,7 +6,7 @@ export default function TodoItem(props) {
                 //checked={props.todo.done}
                 //onChange={props.toggleItem}
             />
-            <span>{props.todo.text}</span>
+            <span>{props.todo.title}</span>
             <button 
             // onClick={props.deleteItem}
             >X

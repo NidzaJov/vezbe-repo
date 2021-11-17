@@ -8,7 +8,7 @@ const mainRouter = Router();
 
 mainRouter.use(cors({
     credentials: true,
-    preflightContinue: true,
+    //preflightContinue: true,
     orgin: 'http://app.test:3000',
 }));
 mainRouter.use(express.json());

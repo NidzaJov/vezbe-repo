@@ -1,5 +1,5 @@
 const { ObjectID } = require('mongodb');
-const { validateKeysExists } = require("../../helpers");
+const { validateKeysExist } = require("../../helpers");
 const { DB } = require('../../database');
 const { todosCollection, sharingActions } = require('../../../constants');
 
@@ -12,16 +12,16 @@ class TodosService {
     }
 
     validateTodoObject(todo, existing = false) {
-        validateKeysExists([
+        validateKeysExist([
             ...(existing ? ['_id'] : []),
             ...todoRequiredKeys
         ], todo);
         for (const item of todo.items) {
-            validateKeysExists(todoItemRequiredKeys, item);
+            validateKeysExist(todoItemRequiredKeys, item);
         }
     }
 
-    getDefaultTodoObject() {
+    getDefaultTodoFields() {
         return {
             lastModified: new Date(),
             sharedWith: [],
@@ -93,7 +93,7 @@ class TodosService {
     }
     async findAllSharedWithUserId(userId) {
         return await TodosService.collection
-        .find({ sharedWith: { $in: [new ObjectId(userId)] }})
+        .find({ sharedWith: { $in: [new ObjectID(userId)] }})
         .toArray();
     }
 }
