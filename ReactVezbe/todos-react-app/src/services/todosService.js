@@ -13,7 +13,7 @@ class TodosService {
 
     async addTodo(payload) {
         const result = await FetchService.postRequest('todos', { title: payload })
-        if (result.ok) {
+        if (result.status === 201) {
             return true;
         }
         else {
@@ -24,7 +24,7 @@ class TodosService {
     async deleteTodo(payload) {
         const result = await FetchService.deleteRequest('todos', { id: payload });
 
-        if (result.ok) {
+        if (result.status === 204) {
             return true;
         }
         else {

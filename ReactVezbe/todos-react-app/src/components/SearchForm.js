@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { searchTodos } from '../actions/todosActions';
 
+
 export default function SearchForm(props) {
 
     const dispatch = useDispatch();
@@ -8,6 +9,7 @@ export default function SearchForm(props) {
 
     return (
         <>
+
             <input 
             type="text"
             placeholder="...Search" 

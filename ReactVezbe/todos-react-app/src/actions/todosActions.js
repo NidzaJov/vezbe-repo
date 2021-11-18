@@ -1,9 +1,8 @@
-import { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS } from './types';
+import { GET_ALL_TODOS, SEARCH_TODOS } from './types';
 import todosService  from '../services/todosService'
 
 export function addTodo(todoText) {
 
-    //const actualTodoText = todoText.toUpperCase();
 
     return async (dispatch) => {
         try {

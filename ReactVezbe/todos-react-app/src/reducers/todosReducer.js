@@ -3,6 +3,7 @@ import  { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS } from '../actions/types';
 const initialState = {
     list: [],
     searchTerm: '',
+    showSearch: false,
 };
 
 export default function todosReducer(state=initialState, action) {
