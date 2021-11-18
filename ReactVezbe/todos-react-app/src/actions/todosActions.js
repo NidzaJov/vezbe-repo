@@ -1,4 +1,4 @@
-import { ADD_TODO, GET_ALL_TODOS } from './types';
+import { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS } from './types';
 import todosService  from '../services/todosService'
 
 export function addTodo(todoText) {
@@ -46,3 +46,17 @@ export function deleteTodo(id) {
         }
     }
 } 
+
+export function searchTodos(searchTerm) {
+    return async (dispatch) => {
+        try {
+            const todoList = await todosService.getAllTodos();
+            dispatch({
+                type: SEARCH_TODOS,
+                payload: {todoList, searchTerm}
+            })
+        } catch(e) {
+
+        }
+    }
+}

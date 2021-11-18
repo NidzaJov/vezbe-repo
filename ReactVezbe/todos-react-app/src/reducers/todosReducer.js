@@ -1,7 +1,8 @@
-import  { ADD_TODO, GET_ALL_TODOS } from '../actions/types';
+import  { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS } from '../actions/types';
 
 const initialState = {
-    list: []
+    list: [],
+    searchTerm: '',
 };
 
 export default function todosReducer(state=initialState, action) {
@@ -14,10 +15,26 @@ export default function todosReducer(state=initialState, action) {
                 list: newList
             };
         case GET_ALL_TODOS:
-            return {
-                ...state,
-                list: action.payload
+                return {
+                    ...state,
+                    list: action.payload,
+                };
+        case SEARCH_TODOS:
+            if (action.payload.searchTerm) {
+                return {
+                    ...state,
+                    list: action.payload.todoList.filter(item => item.title.includes(action.payload.searchTerm.toLowerCase())),
+                    searchTerm: action.payload.searchTerm
+                }
+            } else {
+                return {
+                    ...state,
+                    list: action.payload.todoList,
+                    searchTerm: ''
+                }
             }
+            
+                
         default:
             return state;
             
