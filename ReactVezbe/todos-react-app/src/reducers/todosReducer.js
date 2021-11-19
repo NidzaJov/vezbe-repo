@@ -1,4 +1,4 @@
-import  { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS } from '../actions/types';
+import  { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS, TOGGLE_TODO } from '../actions/types';
 
 const initialState = {
     list: [],
@@ -33,8 +33,17 @@ export default function todosReducer(state=initialState, action) {
                     list: action.payload.todoList,
                     searchTerm: ''
                 }
-            }
+            };
+        case TOGGLE_TODO:
+            const someList = [...state.list];
+            let toggledTodo = someList.find(todo => todo._id === action.payload);
+            toggledTodo.done = !toggledTodo.done;
             
+            return {
+                
+                ...state,
+                list: someList
+            }  
                 
         default:
             return state;

@@ -26,6 +26,7 @@ class TodosService {
             lastModified: new Date(),
             sharedWith: [],
             items: [],
+            done: false
         }
     }
 
@@ -58,7 +59,7 @@ class TodosService {
             _id: new ObjectID(todoId),
             owner: new ObjectID(ownerId)
         }, {
-            $set: { [field]: value, lastModified: newDate() }
+            $set: { [field]: value, lastModified: new Date() }
         });
     }
     async share(ownerId, todoId, userId, action) {

@@ -5,15 +5,7 @@ import Register from './views/Register';
 import Todos from './views/Todos';
 
 export default function App() {
-  /*
-  const todosList = useSelector(
-    state => state.todos.list
-  );
-
-  const todosItems = todosList.map(
-    item => (<TodoItem todo={item} />)
-  )
-  */
+  
   const loggedIn = useSelector(state => state.auth.loggedIn);
   const registrationStatus = useSelector(state => state.auth.registrationStatus);
 

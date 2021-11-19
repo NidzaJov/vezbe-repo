@@ -40,6 +40,17 @@ class FetchService {
             credentials: 'include'
         })
     }
+
+    static async patchRequest(url, payload) {
+        return await fetch(`${config.API_URL}/${url}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ _id:payload._id, field: 'done', value: !payload.done}),
+            credentials: 'include'
+        })
+    }
 }
 
 export { FetchService };

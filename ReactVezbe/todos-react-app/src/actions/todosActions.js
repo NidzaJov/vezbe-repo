@@ -1,5 +1,5 @@
-import { GET_ALL_TODOS, SEARCH_TODOS } from './types';
-import todosService  from '../services/todosService'
+import { GET_ALL_TODOS, SEARCH_TODOS, TOGGLE_TODO } from './types';
+import todosService  from '../services/todosService';
 
 export function addTodo(todoText) {
 
@@ -54,6 +54,23 @@ export function searchTodos(searchTerm) {
                 type: SEARCH_TODOS,
                 payload: {todoList, searchTerm}
             })
+        } catch(e) {
+
+        }
+    }
+}
+
+export function toggleTodo(todo) {
+    return async (dispatch) => {
+        try {
+            console.log("Action started");
+            const one = await todosService.patchTodo(todo);
+            console.log("Dispatched Type:", one, TOGGLE_TODO);
+            dispatch({
+                type:TOGGLE_TODO,
+                payload: todo._id
+            }) 
+            
         } catch(e) {
 
         }
