@@ -1,5 +1,5 @@
-import { deleteTodo, toggleTodo } from "../actions/todosActions";
-import { useDispatch } from "react-redux";
+import { deleteTodo, toggleTodo, enterEditMode } from "../actions/todosActions";
+import { useDispatch, } from "react-redux";
 
 export default function TodoItem(props) {
     const dispatch = useDispatch();
@@ -10,6 +10,10 @@ export default function TodoItem(props) {
         dispatch(toggleTodo(item));
         e.stopPropagation();
     }
+    
+    const handleEditClick = (todo) => {
+        dispatch(enterEditMode(todo))
+    }
 
     return (
         <div>
@@ -19,6 +23,9 @@ export default function TodoItem(props) {
                 onChange={(e) => toggle(e,props.todo)}
             />
             <span>{props.todo.title}</span>
+            <button
+            onClick={() => handleEditClick(props.todo)}
+            >Edit</button>
             <button 
             onClick={handleDeleteTodo}
             >X

@@ -1,10 +1,12 @@
-import  { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS, TOGGLE_TODO, HIDE_COMPLETED } from '../actions/types';
+import  { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS, TOGGLE_TODO, HIDE_COMPLETED, EDIT_MODE_TOGGLE } from '../actions/types';
 
 const initialState = {
     list: [],
     searchTerm: '',
     showSearch: false,
     hideCompleted: false,
+    editMode: false,
+    editedTodoId: null,
 };
 
 export default function todosReducer(state=initialState, action) {
@@ -52,7 +54,14 @@ export default function todosReducer(state=initialState, action) {
             return {
                 ...state,
                 hideCompleted: hideField,
-            }       
+            }     
+        case EDIT_MODE_TOGGLE:
+            const mode = !state.editMode;
+            return {
+                ...state,
+                editMode: mode,
+                editedTodo: action.payload
+            }  
         default:
             return state;
             

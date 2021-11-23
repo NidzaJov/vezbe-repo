@@ -1,4 +1,4 @@
-import { GET_ALL_TODOS, HIDE_COMPLETED, SEARCH_TODOS, TOGGLE_TODO } from './types';
+import { EDIT_MODE_TOGGLE, GET_ALL_TODOS, HIDE_COMPLETED, SEARCH_TODOS, TOGGLE_TODO, EDIT_TODO } from './types';
 import todosService  from '../services/todosService';
 
 export function addTodo(todoText) {
@@ -77,6 +77,35 @@ export function hideCompleted() {
             })
         } catch(e) {
             
+        }
+    }
+}
+
+export function enterEditMode(todo) {
+    return async (dispatch) => {
+        try {
+            dispatch({
+                type: EDIT_MODE_TOGGLE,
+                payload: todo
+            })
+        } catch(e) {
+
+        }
+    }
+}
+
+export function editTodo(editedTodo) {
+    console.log('Started editing todo', editedTodo)
+    return async (dispatch) => {
+        try{
+            await todosService.putTodo(editedTodo);
+            await getAllTodos() (dispatch);
+            dispatch({
+                type: EDIT_MODE_TOGGLE,
+                payload: editedTodo
+            })
+        } catch (e) {
+
         }
     }
 }

@@ -20,6 +20,7 @@ class FetchService {
     }
 
     static async putRequest(url, payload) {
+        console.log("FetchService got", payload, url)
         return await fetch(`${config.API_URL}/${url}`, {
             method: 'PUT',
             headers: {

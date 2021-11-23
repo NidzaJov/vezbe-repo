@@ -6,12 +6,14 @@ import { getAllTodos } from '../actions/todosActions';
 import { TodoList } from "../components/TodoList";
 import  TodoForm  from "../components/TodoForm";
 import SearchForm from '../components/SearchForm';
+import EditForm from '../components/EditForm';
 
 export default function Todos() {
     const dispatch = useDispatch();
     const list = useSelector(state => state.todos.list);
     const searchTerm = useSelector(state => state.todos.searchTerm);
     const [showSearch, setShowSearch] = useState(false);
+    const editMode = useSelector(state => state.todos.editMode)
 
     useEffect(() => {
         dispatch(getAllTodos());
@@ -26,6 +28,8 @@ export default function Todos() {
             }
             
             {showSearch? <SearchForm searchTerm={searchTerm}/> : <></>} 
+
+            {editMode? <EditForm /> : <></>}
 
             <TodoForm/>
            <TodoList todoList={list} key={list._id} />
