@@ -20,6 +20,7 @@ export default function Todos() {
     }, [dispatch])
     return (
         <MainLayout title={'My Todos'} buttonText={'Logout'} callback={() => { dispatch(logout()) }}>
+            <div class='todos-root'>
             {showSearch?
                 <button onClick={() => setShowSearch(!showSearch)} 
                 >&gt;</button>
@@ -33,6 +34,8 @@ export default function Todos() {
 
             <TodoForm/>
            <TodoList todoList={list} key={list._id} />
+            </div>
+            
         </MainLayout>
     )
 }

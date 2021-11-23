@@ -21,7 +21,7 @@ export function TodoList(props) {
                 }
             />
         </div>
-        <div>
+        <div class="list">
             {list.map((item, index) => 
                 <TodoItem 
                 todo={item} 

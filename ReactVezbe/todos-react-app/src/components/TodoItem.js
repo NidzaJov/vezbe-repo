@@ -16,7 +16,7 @@ export default function TodoItem(props) {
     }
 
     return (
-        <div>
+        <div class="list-item">
             <input 
                 type="checkbox"
                 checked={props.todo.done}
@@ -24,6 +24,7 @@ export default function TodoItem(props) {
             />
             <span>{props.todo.title}</span>
             <button
+            class='edit-button'
             onClick={() => handleEditClick(props.todo)}
             >Edit</button>
             <button 

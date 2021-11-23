@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './views/Login';
 import Register from './views/Register';
 import Todos from './views/Todos';
+import './App.css'
 
 export default function App() {
   
