@@ -7,3 +7,4 @@ export const LOGOUT = 'LOGOUT';
 export const GET_ALL_TODOS = 'GET_ALL_TODOS';
 export const SEARCH_TODOS = 'SEARCH_TODOS';
 export const TOGGLE_TODO = "TOGGLE_TODO";
+export const HIDE_COMPLETED = "HIDE_COMPLETED";

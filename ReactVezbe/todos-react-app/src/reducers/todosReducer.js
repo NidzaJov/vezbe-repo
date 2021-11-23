@@ -1,9 +1,10 @@
-import  { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS, TOGGLE_TODO } from '../actions/types';
+import  { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS, TOGGLE_TODO, HIDE_COMPLETED } from '../actions/types';
 
 const initialState = {
     list: [],
     searchTerm: '',
     showSearch: false,
+    hideCompleted: false,
 };
 
 export default function todosReducer(state=initialState, action) {
@@ -44,7 +45,14 @@ export default function todosReducer(state=initialState, action) {
                 ...state,
                 list: someList
             }  
-                
+        case  HIDE_COMPLETED:
+            console.log("reducer hide completed started");
+            const hideField = !state.hideCompleted;
+            console.log('1',hideField)
+            return {
+                ...state,
+                hideCompleted: hideField,
+            }       
         default:
             return state;
             

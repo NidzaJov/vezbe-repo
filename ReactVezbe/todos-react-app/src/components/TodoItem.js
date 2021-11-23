@@ -1,4 +1,4 @@
-import { deleteTodo } from "../actions/todosActions";
+import { deleteTodo, toggleTodo } from "../actions/todosActions";
 import { useDispatch } from "react-redux";
 
 export default function TodoItem(props) {
@@ -6,13 +6,17 @@ export default function TodoItem(props) {
     const handleDeleteTodo = () => {
         dispatch(deleteTodo(props.todo._id))
     }
+    const toggle = (e, item) => {
+        dispatch(toggleTodo(item));
+        e.stopPropagation();
+    }
 
     return (
         <div>
             <input 
                 type="checkbox"
                 checked={props.todo.done}
-                onChange={props.toggleItem}
+                onChange={(e) => toggle(e,props.todo)}
             />
             <span>{props.todo.title}</span>
             <button 

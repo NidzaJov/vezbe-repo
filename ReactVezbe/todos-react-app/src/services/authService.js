@@ -5,7 +5,6 @@ import { FetchService } from './fetchService';
 class AuthService {
     async login(credentials) {
         const result = await FetchService.postRequest('login', credentials)
-        console.info(result.headers);
         if (result.ok) {
             return true;
         }

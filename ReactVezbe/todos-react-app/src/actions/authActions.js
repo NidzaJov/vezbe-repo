@@ -1,4 +1,3 @@
-//import { config } from '../config';
 import authService from '../services/authService';
 import { LOGOUT, LOG_IN, LOG_IN_ERROR, REGISTRATION_FAILED, REGISTRATION_SUCCESSFULL } from './types';
 
@@ -9,7 +8,8 @@ export function logIn(credentials) {
             dispatch({
                 type: LOG_IN
             });
-        } catch(e) {
+        } 
+        catch(e) {
             dispatch({
                 type: LOG_IN_ERROR,
                 payload: "Bad Credentials. Please try again."
