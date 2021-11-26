@@ -7,6 +7,7 @@ import { TodoList } from "../components/TodoList";
 import  TodoForm  from "../components/TodoForm";
 import SearchForm from '../components/SearchForm';
 import EditForm from '../components/EditForm';
+import classNames from 'classnames';
 
 export default function Todos() {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function Todos() {
     }, [dispatch])
     return (
         <MainLayout title={'My Todos'} buttonText={'Logout'} callback={() => { dispatch(logout()) }}>
-            <div class='todos-root'>
+            <div className={classNames('todos-root', {'darkened': editMode})}>
             {showSearch?
                 <button onClick={() => setShowSearch(!showSearch)} 
                 >&gt;</button>
@@ -30,7 +31,9 @@ export default function Todos() {
             
             {showSearch? <SearchForm searchTerm={searchTerm}/> : <></>} 
 
-            {editMode? <EditForm /> : <></>}
+            {editMode? <EditForm 
+                
+            /> : <></>}
 
             <TodoForm/>
            <TodoList todoList={list} key={list._id} />

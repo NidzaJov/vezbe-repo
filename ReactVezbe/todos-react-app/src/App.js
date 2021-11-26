@@ -11,7 +11,7 @@ export default function App() {
   const registrationStatus = useSelector(state => state.auth.registrationStatus);
 
   return (
-    <>
+    <div className="App">
       <h1>Todo App</h1>
       
       <Switch>
@@ -41,6 +41,6 @@ export default function App() {
           <Redirect to="/todos"/>
         </Route>
       </Switch>
-    </>
+    </div>
   );
 }

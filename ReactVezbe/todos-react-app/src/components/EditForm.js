@@ -9,18 +9,24 @@ export default function EditForm(props) {
 
     return (
         <>
-        <div>
-            <input 
-                type="text"
-                value={editedTodo.title}
-                onChange={(e) => setEditedTodo({...todoToEdit, title: e.target.value})}
-                />
-            <button
-                onClick={() => dispatch(editTodo(editedTodo))}
-            >Save</button>
-            <button
-                onClick={() => dispatch(enterEditMode(null))}
-            >Cancel</button>
+        <div className='stand-in-front'>
+            <div className='edit-card'>
+                <input 
+                    type="text"
+                    value={editedTodo.title}
+                    onChange={(e) => setEditedTodo({...todoToEdit, title: e.target.value})}
+                    />
+                <div>
+                    <button
+                        onClick={() => dispatch(editTodo(editedTodo))}
+                    >Save</button>
+                    <button
+                        onClick={() => dispatch(enterEditMode(null))}
+                    >Cancel</button>
+                </div>
+                
+            </div>
+            
         </div>
         </>
     )

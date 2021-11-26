@@ -82,14 +82,92 @@ body {
   right: 35px;
 }
 
+.darkened {
+    
+}
+
+.edit-card {
+  background-color: #fff;
+  width: 270px;
+  height: 100px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  justify-content: space-around;
+}
+
+.edit-card > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.edit-card button {
+  background-color: #0079bf;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+}
+
+.stand-in-front {
+  background: #0009;
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.login {
+  display: flex;
+  flex-direction: column;
+  position: relative; 
+  align-items: center;
+  height: 500px;
+  justify-content: flex-start;
+  margin-top: 30px;
 }
+
+.login > div {
+  margin: 0 0 20px 0;
+  width: 45%;
+}
+
+
+
+.login > div > label {
+  float: right;
+}
+
+.login > div > label > span {
+  margin-right: 10px;
+}
+
+.login label:nth-child(1)  {
+  
+}
+
+.login label:nth-child(2)  {
+  
+}
+
+.login label input {
+  
+}
+
+.login button {
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

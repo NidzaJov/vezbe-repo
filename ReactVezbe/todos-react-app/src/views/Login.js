@@ -23,22 +23,31 @@ export  default function Login() {
     }
 
     return (
-        <MainLayout title={'Login'} buttonText={'Registration'} path={'/register'}>
-            <label>
-                <span>Email</span>
-                <input type="text" value={email}
-                onChange={(e) => {setEmail(e.target.value)}} /> 
-           </label>
-           <label>
-               <span>Password</span>
-               <input type="password" value={password}
-               onChange={(e) => {setPassword(e.target.value)}} />
-           </label>
-           
-           <button onClick={loginHandler}>Login</button>
-           <div>
-               { logginError }
-           </div>
-        </MainLayout>
+            <MainLayout title={'Login'} buttonText={'Registration'} path={'/register'}>
+                <div className="login">
+                    <div>
+                        <label>
+                            <span>Email:</span>
+                            <input type="text" value={email}
+                            onChange={(e) => {setEmail(e.target.value)}} />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <span>Password:</span>
+                            <input type="password" value={password}
+                            onChange={(e) => {setPassword(e.target.value)}} />
+                        </label>
+                    </div>
+                
+                    <div>
+                        <button onClick={loginHandler}>Login</button>
+                            <div>
+                                { logginError }
+                            </div>
+                    </div>
+                </div>
+            </MainLayout>
+        
     )
 }
