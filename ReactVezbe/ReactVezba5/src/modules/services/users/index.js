@@ -23,6 +23,10 @@ class UsersService {
             _id: new ObjectID(id)
         });
     };
+
+    async findAllUsers() {
+        return await UsersService.collection.find().toArray();
+    }
     
     async update(user) {};
 }

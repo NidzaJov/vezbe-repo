@@ -65,16 +65,17 @@ class TodosService {
     async share(ownerId, todoId, userId, action) {
         let operator = '';
         if (action === sharingActions.ADD) {
-            operator = $push;
+            operator = '$push';
         } else if (action === sharingActions.REMOVE) {
-            operator = $pull
+            operator = '$pull';
         } else {
             throw new Error('Unknown action')
         }
+        console.log(ownerId, todoId, userId)
 
         return await TodosService.collection.updateOne({
             _id: new ObjectID(todoId),
-            owner: new ObjectID(todoId),
+            owner: ownerId,
         }, {
             [operator]: { sharedWith: new ObjectID(userId) }
         });

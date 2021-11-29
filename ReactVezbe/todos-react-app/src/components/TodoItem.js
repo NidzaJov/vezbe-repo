@@ -1,5 +1,6 @@
 import { deleteTodo, toggleTodo, enterEditMode } from "../actions/todosActions";
-import { useDispatch, } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 export default function TodoItem(props) {
     const dispatch = useDispatch();
@@ -15,8 +16,15 @@ export default function TodoItem(props) {
         dispatch(enterEditMode(todo))
     }
 
+    const history = useHistory();
+
+    const handleShareClick = (todo) => {
+        console.log('handling started', props)
+        history.push(props.path);
+    }
+
     return (
-        <div class="list-item">
+        <div className="list-item">
             <input 
                 type="checkbox"
                 checked={props.todo.done}
@@ -24,7 +32,11 @@ export default function TodoItem(props) {
             />
             <span>{props.todo.title}</span>
             <button
-            class='edit-button'
+            onClick={() => handleShareClick(props.todo)}
+            > Share
+            </button>
+            <button
+            className='edit-button'
             onClick={() => handleEditClick(props.todo)}
             >Edit</button>
             <button 

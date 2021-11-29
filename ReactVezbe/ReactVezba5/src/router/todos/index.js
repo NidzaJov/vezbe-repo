@@ -55,7 +55,8 @@ todosRouter.patch('/', async function(req, res) {
         console.info('Patching on backend started');
         const patchReqKeys = ['_id', 'field', 'value'];
         validateKeysExist(patchReqKeys, req.body);
-        let { _id, field, value } = req.body;
+        let { _id, field, value, action } = req.body;
+        console.log(req.body);
 
         if (field === 'title') {
             await todosService.updateField(req.user._id, _id, field, value);

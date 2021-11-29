@@ -19,8 +19,9 @@ export default function Todos() {
     useEffect(() => {
         dispatch(getAllTodos());
     }, [dispatch])
+    
     return (
-        <MainLayout title={'My Todos'} buttonText={'Logout'} callback={() => { dispatch(logout()) }}>
+        <MainLayout title={'My Todos'} buttonText={'Logout'} callback={() => { dispatch(logout()) }} >
             <div className={classNames('todos-root', {'darkened': editMode})}>
             {showSearch?
                 <button onClick={() => setShowSearch(!showSearch)} 

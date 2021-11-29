@@ -1,4 +1,4 @@
-import  { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS, TOGGLE_TODO, HIDE_COMPLETED, EDIT_MODE_TOGGLE } from '../actions/types';
+import  { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS, TOGGLE_TODO, HIDE_COMPLETED, EDIT_MODE_TOGGLE, SHARE_TODO_WITH_USER } from '../actions/types';
 
 const initialState = {
     list: [],
@@ -48,7 +48,6 @@ export default function todosReducer(state=initialState, action) {
                 list: someList
             }  
         case  HIDE_COMPLETED:
-            console.log("reducer hide completed started");
             const hideField = !state.hideCompleted;
             console.log('1',hideField)
             return {
@@ -62,6 +61,14 @@ export default function todosReducer(state=initialState, action) {
                 editMode: mode,
                 editedTodo: action.payload
             }  
+        case SHARE_TODO_WITH_USER: 
+            const todosList = [...state.list];
+            let addedTodo = todosList.find(todo => todo._id === action.payload._id);
+            addedTodo.sharedWith.push(action.payload.userId);
+            return {
+                    ...state,
+                    todosList
+            }
         default:
             return state;
             

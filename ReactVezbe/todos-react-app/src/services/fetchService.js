@@ -20,7 +20,6 @@ class FetchService {
     }
 
     static async putRequest(url, payload) {
-        console.log("FetchService got", payload, url)
         return await fetch(`${config.API_URL}/${url}`, {
             method: 'PUT',
             headers: {
@@ -48,7 +47,7 @@ class FetchService {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ _id:payload._id, field: 'done', value: !payload.done}),
+            body: JSON.stringify({ _id:payload._id, field: payload.field, value: payload.value, action: payload.action}),
             credentials: 'include'
         })
     }

@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './views/Login';
 import Register from './views/Register';
 import Todos from './views/Todos';
+import ShareTodo from './views/ShareTodo';
 import './App.css'
 
 export default function App() {
@@ -36,7 +37,9 @@ export default function App() {
           }
           
         </Route>
-
+        <Route path="/share/:todoId">
+          <ShareTodo></ShareTodo>
+        </Route>
         <Route path="/">
           <Redirect to="/todos"/>
         </Route>

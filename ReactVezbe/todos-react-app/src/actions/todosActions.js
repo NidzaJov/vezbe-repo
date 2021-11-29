@@ -1,4 +1,4 @@
-import { EDIT_MODE_TOGGLE, GET_ALL_TODOS, HIDE_COMPLETED, SEARCH_TODOS, TOGGLE_TODO, EDIT_TODO } from './types';
+import { EDIT_MODE_TOGGLE, GET_ALL_TODOS, HIDE_COMPLETED, SEARCH_TODOS, TOGGLE_TODO, SHARE_TODO_WITH_USER } from './types';
 import todosService  from '../services/todosService';
 
 export function addTodo(todoText) {
@@ -56,7 +56,7 @@ export function searchTodos(searchTerm) {
 export function toggleTodo(todo) {
     return async (dispatch) => {
         try {
-            await todosService.patchTodo(todo);
+            await todosService.patchTodo({ _id: todo._id, field: 'done', value: !todo.done});
             dispatch({
                 type:TOGGLE_TODO,
                 payload: todo._id
@@ -71,7 +71,6 @@ export function toggleTodo(todo) {
 export function hideCompleted() {
     return async (dispatch) => {
         try {
-            console.log("action hide completed started");
             dispatch({
                 type: HIDE_COMPLETED,
             })
@@ -95,7 +94,6 @@ export function enterEditMode(todo) {
 }
 
 export function editTodo(editedTodo) {
-    console.log('Started editing todo', editedTodo)
     return async (dispatch) => {
         try{
             await todosService.putTodo(editedTodo);
@@ -103,6 +101,21 @@ export function editTodo(editedTodo) {
             dispatch({
                 type: EDIT_MODE_TOGGLE,
                 payload: editedTodo
+            })
+        } catch (e) {
+
+        }
+    }
+}
+
+export function shareTodoWithUser(payload) {
+    return async (dispatch) => {
+        try {
+            console.log(`Started sharing todo with id: ${payload.todoId}, with user id: ${payload.userId}`)
+            await todosService.patchTodo({ _id: payload.todoId, field: 'sharedWith', value: payload.userId, action: 'ADD' });
+            dispatch({
+                type: SHARE_TODO_WITH_USER,
+                payload: payload
             })
         } catch (e) {
 

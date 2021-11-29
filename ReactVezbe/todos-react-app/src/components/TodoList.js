@@ -6,7 +6,6 @@ export function TodoList(props) {
     
     const dispatch = useDispatch();
     const hidenCompleted = useSelector(state => state.todos.hideCompleted);
-    console.log(hidenCompleted)
     const list = hidenCompleted? props.todoList.filter(item => item.done === false) : props.todoList;
     console.log(list);
     return (
@@ -26,6 +25,7 @@ export function TodoList(props) {
                 <TodoItem 
                 todo={item} 
                 key={index} 
+                path={`/share/${item._id}`}
                 />
                 
             )}
