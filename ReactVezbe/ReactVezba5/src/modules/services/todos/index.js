@@ -71,7 +71,6 @@ class TodosService {
         } else {
             throw new Error('Unknown action')
         }
-        console.log(ownerId, todoId, userId)
 
         return await TodosService.collection.updateOne({
             _id: new ObjectID(todoId),

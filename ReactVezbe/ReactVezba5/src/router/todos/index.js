@@ -42,6 +42,7 @@ todosRouter.post('/', async function(req, res) {
 todosRouter.put('/', async function(req, res) {
     try {
         const todo = req.body;
+        console.info('Put request body:', req.body);
         await todosService.update(req.user._id, todo);
         res.sendStatus(200);
     } catch (e) {
@@ -52,11 +53,11 @@ todosRouter.put('/', async function(req, res) {
 
 todosRouter.patch('/', async function(req, res) {
     try {
-        console.info('Patching on backend started');
+        const { body } = req;
+        console.info('Patch request body:', body);
         const patchReqKeys = ['_id', 'field', 'value'];
-        validateKeysExist(patchReqKeys, req.body);
-        let { _id, field, value, action } = req.body;
-        console.log(req.body);
+        validateKeysExist(patchReqKeys, body);
+        let { _id, field, value, action } = body;
 
         if (field === 'title') {
             await todosService.updateField(req.user._id, _id, field, value);
@@ -68,7 +69,7 @@ todosRouter.patch('/', async function(req, res) {
         }
         else if (field === 'sharedWith' && Object.values(sharingActions).includes(action)) {
             await todosService.share(req.user._id, _id, value, action);
-            res.sendStatus(200);
+            res.sendStatus(204);
         } else {
             res.sendStatus(400);
         }

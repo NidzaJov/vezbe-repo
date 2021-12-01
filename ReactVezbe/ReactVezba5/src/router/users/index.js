@@ -3,8 +3,6 @@ const { Router } = express;
 const authMiddleware = require('../../middleware/auth');
 const usersService  = require('../../modules/services/users');
 
-
-
 const usersRouter = new Router();
 usersRouter.use(authMiddleware);
 
@@ -22,6 +20,6 @@ usersRouter.get('/:userId?', async function(req, res) {
 });
 
 module.exports = {
+    path: '/users',
     router: usersRouter,
-    path: '/users'
 }

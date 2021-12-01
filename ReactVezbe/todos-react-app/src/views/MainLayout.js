@@ -14,13 +14,13 @@ export default function MainLayout(props) {
     }
 
     return (
-        <div>
+        <div className="main-view-panel">
             <h1>{props.title}</h1>
             <button onClick={handleNavigation}>
                 {props.buttonText}
             </button>
 
-            <div>
+            <div className="App-div-div">
                 {props.children}
             </div>
         </div>
