@@ -5,6 +5,7 @@ import Register from './views/Register';
 import Todos from './views/Todos';
 import ShareTodo from './views/ShareTodo';
 import './App.css'
+import SingleTodo from './views/SingleTodo';
 
 export default function App() {
   
@@ -26,7 +27,8 @@ export default function App() {
             : <Register/>
           }
         </Route>
-
+        <Route path='/todos/:todoId' component={SingleTodo}>
+        </Route>
         <Route path="/todos">
           {
             loggedIn ?  (

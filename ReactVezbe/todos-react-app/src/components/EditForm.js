@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { editTodo, enterEditMode } from '../actions/todosActions';
 import { useState, useEffect } from 'react';
-import UserItem from './UserItem';
 import { getAllUsers } from '../actions/userActions';
 
 export default function EditForm(props) {
@@ -11,7 +10,10 @@ export default function EditForm(props) {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllUsers());
-    }, [dispatch])
+    }, [dispatch]);
+    const findUser = (id) => usersList.find(user => user._id === id);
+    const sharedWithList = todoToEdit.sharedWith.map((id, idx) => <article key={idx} ><span>{findUser(id).name ? findUser(id).name :findUser(id).firstName + ' ' + findUser(id).lastName}</span></article>)
+
 
     return (
         <>
@@ -31,7 +33,7 @@ export default function EditForm(props) {
                     >Cancel</button>
                 </div>
                 <div>
-                    {todoToEdit.sharedWith.map((item, idx) => <UserItem key={idx} user={usersList.find(user => user._id === item)}></UserItem>)}
+                    {sharedWithList}
                 </div>
                 
             </div>

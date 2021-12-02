@@ -7,8 +7,11 @@ export default function TodoForm() {
     const dispatch = useDispatch();
 
     const handleAddTodo = () => {
-        dispatch(addTodo(textValue))
-        setTextValue('');
+        if (textValue) {
+            dispatch(addTodo(textValue))
+            setTextValue('');
+        }
+        
     };
 
     return (
