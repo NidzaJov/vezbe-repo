@@ -7,7 +7,6 @@ export function TodoList(props) {
     const dispatch = useDispatch();
     const hidenCompleted = useSelector(state => state.todos.hideCompleted);
     const list = hidenCompleted? props.todoList.filter(item => item.done === false) : props.todoList;
-    console.log(list);
     return (
         <>
         <div>

@@ -44,9 +44,12 @@ class TodosService {
     }
 
     async putTodo(payload) {
-        console.log("Todos service got payload", payload);
-        const result = await FetchService.putRequest('todos', payload);
-
+        let result
+        if (payload) {
+            result = await FetchService.putRequest('todos', payload);
+        }
+        else throw new Error('There is no todo to edit');
+        
         if (result.ok) {
             return true;
         }

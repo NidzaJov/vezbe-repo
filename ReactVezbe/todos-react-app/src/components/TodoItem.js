@@ -19,7 +19,6 @@ export default function TodoItem(props) {
     const history = useHistory();
 
     const handleShareClick = (todo) => {
-        console.log('handling started', props)
         history.push(props.path);
     }
 

@@ -14,7 +14,6 @@ export default function SearchForm(props) {
             type="text"
             placeholder="...Search" 
             onChange = { (e) => {
-                console.log(e.target.value)
                 dispatch(searchTodos(e.target.value))
                 }
             }

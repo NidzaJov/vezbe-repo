@@ -101,7 +101,6 @@ export default function todosReducer(state=initialState, action) {
                 error: action.payload
             }  
         case SHARE_TODO_WITH_USER: 
-            console.log("sharing has started")
             const todosList = [...state.list];
             let addedTodo = todosList.find(todo => todo._id === action.payload._id);
             addedTodo.sharedWith.push(action.payload.userId);

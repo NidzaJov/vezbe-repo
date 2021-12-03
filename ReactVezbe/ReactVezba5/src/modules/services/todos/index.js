@@ -45,13 +45,13 @@ class TodosService {
         this.validateTodoObject(todo, true);
         const { _id } = todo;
         delete todo._id;
-        delete todo.owner;
+        //delete todo.owner;
 
         return await TodosService.collection.updateOne({
             _id: new ObjectID(_id),
-            owner: new ObjectID(ownerId)
+            //owner: new ObjectID(todo.owner)
         }, {
-            $set: {...todo, lastModified: new Date() }
+            $set: {...todo, owner:new ObjectID(todo.owner), lastModified: new Date() }
         });
     }
     async updateField(ownerId, todoId, field, value) {
