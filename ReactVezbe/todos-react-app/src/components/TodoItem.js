@@ -1,6 +1,8 @@
 import { deleteTodo, toggleTodo, enterEditMode } from "../actions/todosActions";
 import { useDispatch } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
+import TimeAgo from "./TimeAgo";
+import ReactionButtons from "./ReactionButtons";
 
 export default function TodoItem(props) {
     const dispatch = useDispatch();
@@ -30,6 +32,8 @@ export default function TodoItem(props) {
                 onChange={(e) => toggle(e,props.todo)}
             />
             <span>{props.todo.title}</span>
+            <TimeAgo timestamp={props.todo.lastModified}></TimeAgo>
+            <ReactionButtons todo={props.todo}></ReactionButtons>
             <Link to={`/todos/${props.todo._id}`} className='list-item-link'>View todo</Link>
             <button
             onClick={() => handleShareClick(props.todo)}

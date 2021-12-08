@@ -4,6 +4,7 @@ const { Router } = express;
 const auth = require('./auth');
 const todos = require('./todos');
 const users = require('./users');
+const reactions = require('./reactions');
 
 const mainRouter = Router();
 
@@ -16,6 +17,7 @@ mainRouter.use(express.json());
 mainRouter.use(auth.path, auth.router);
 mainRouter.use(todos.path, todos.router);
 mainRouter.use(users.path, users.router);
+mainRouter.use(reactions.path, reactions.router);
 
 module.exports = {
     path: '/api',

@@ -11,7 +11,7 @@ import classNames from 'classnames';
 
 export default function Todos() {
     const dispatch = useDispatch();
-    const list = useSelector(state => state.todos.list);
+    const list = useSelector(state => state.todos.list).slice().sort((a, b) => b.lastModified.localeCompare(a.lastModified));
     const searchTerm = useSelector(state => state.todos.searchTerm);
     const [showSearch, setShowSearch] = useState(false);
     const editMode = useSelector(state => state.todos.editMode)

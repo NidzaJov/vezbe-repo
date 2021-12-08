@@ -4,19 +4,22 @@ import { useState, useEffect } from 'react';
 import { getAllUsers } from '../actions/userActions';
 
 export default function EditForm(props) {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getAllUsers());
+    });
+    /*
+    useEffect(() => {
+        dispatch(getAllUsers());
+    }, [dispatch]);
+    */
     const todoToEdit = useSelector(state => state.todos.editedTodo);
     const usersList = useSelector(state => state.users.usersList)
     const [editedTodo, setEditedTodo] = useState(todoToEdit);
     const [message, setMessage] = useState('');
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getAllUsers());
-    }, []);
-    useEffect(() => {
-        dispatch(getAllUsers());
-    }, [dispatch]);
+
     const findUser = (id) => usersList.find(user => user._id === id);
-    const sharedWithList = todoToEdit.sharedWith.map((id, idx) => <article key={idx} ><span>{findUser(id).name ? findUser(id).name :findUser(id).firstName + ' ' + findUser(id).lastName}</span></article>)
+    const sharedWithList = todoToEdit.sharedWith.map((id, idx) => <article key={idx} ><span>{findUser(id).firstName + ' ' + findUser(id).lastName}</span></article>)
     
     const usersOptions = usersList.map(user => (
         <option key={user._id} value={user._id}>
@@ -42,7 +45,9 @@ export default function EditForm(props) {
         <>
         <div className='stand-in-front'>
             <div className='edit-card'>
+            <label htmlFor="todoTitle">Title:</label>
                 <input 
+                    id="todoTitle"
                     type="text"
                     value={editedTodo.title}
                     onChange={(e) => setEditedTodo({...todoToEdit, title: e.target.value})}

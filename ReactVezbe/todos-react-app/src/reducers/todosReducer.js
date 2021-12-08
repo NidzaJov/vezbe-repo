@@ -1,5 +1,7 @@
 import  { ADD_TODO, GET_ALL_TODOS, SEARCH_TODOS, TOGGLE_TODO, HIDE_COMPLETED, EDIT_MODE_TOGGLE,
-     SHARE_TODO_WITH_USER, UNSHARE_TODO_WITH_USER, ADD_TODO_FAILED, GET_ALL_TODOS_FAILED, SEARCH_TODOS_FAILED, DELETE_TODO_FAILED, TOGGLE_TODO_FAILED, HIDE_COMPLETED_FAILED, EDIT_MODE_TOGGLE_FAILED, SHARE_TODO_WITH_USER_FAILED, UNSHARE_TODO_WITH_USER_FAILED } from '../actions/types';
+     SHARE_TODO_WITH_USER, UNSHARE_TODO_WITH_USER, ADD_TODO_FAILED, GET_ALL_TODOS_FAILED,
+      SEARCH_TODOS_FAILED, DELETE_TODO_FAILED, TOGGLE_TODO_FAILED, HIDE_COMPLETED_FAILED,
+       EDIT_MODE_TOGGLE_FAILED, SHARE_TODO_WITH_USER_FAILED, UNSHARE_TODO_WITH_USER_FAILED } from '../actions/types';
 
 const initialState = {
     list: [],
@@ -126,7 +128,7 @@ export default function todosReducer(state=initialState, action) {
             return {
                 ...state,
                 error: action.payload
-            }  
+            } 
 
         default:
             return state;

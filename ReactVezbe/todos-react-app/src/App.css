@@ -85,8 +85,8 @@ body {
 
 .edit-card {
   background-color: #fff;
-  width: 270px;
-  height: 100px;
+  width: 30%;
+  height: fit-content;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -119,6 +119,11 @@ body {
     right: 0;
     top: 0;
     z-index: 10;
+}
+
+.stand-in-front label{
+  color: #172b4d;
+  text-align: left;
 }
 
 .App {
