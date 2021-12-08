@@ -34,11 +34,12 @@ class TodosService {
         const todoDoc = {
             ...this.getDefaultTodoFields(),
             ...todoObj,
-            owner: new ObjectID(ownerId)
+            owner: new ObjectID(ownerId),
+            _id: new ObjectID()
         };
         this.validateTodoObject(todoDoc); 
         await TodosService.collection.insertOne(todoDoc);
-        
+        return todoDoc._id;
     }
 
     async update(ownerId, todo) {
@@ -51,7 +52,7 @@ class TodosService {
             _id: new ObjectID(_id),
             //owner: new ObjectID(todo.owner)
         }, {
-            $set: {...todo, owner:new ObjectID(todo.owner), lastModified: new Date() }
+            $set: {...todo, owner:new ObjectID(todo.owner), lastModified: new Date(), sharedWith: todo.sharedWith.map(id => new ObjectID(id)) }
         });
     }
     async updateField(ownerId, todoId, field, value) {

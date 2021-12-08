@@ -5,18 +5,20 @@ import { getAllUsers } from '../actions/userActions';
 
 export default function EditForm(props) {
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getAllUsers());
-    });
+    
     /*
     useEffect(() => {
         dispatch(getAllUsers());
     }, [dispatch]);
     */
     const todoToEdit = useSelector(state => state.todos.editedTodo);
+    console.log('Todo to edit:', todoToEdit);
     const usersList = useSelector(state => state.users.usersList)
     const [editedTodo, setEditedTodo] = useState(todoToEdit);
     const [message, setMessage] = useState('');
+    useEffect(() => {
+        dispatch(getAllUsers());
+    }, [editedTodo]);
 
     const findUser = (id) => usersList.find(user => user._id === id);
     const sharedWithList = todoToEdit.sharedWith.map((id, idx) => <article key={idx} ><span>{findUser(id).firstName + ' ' + findUser(id).lastName}</span></article>)
@@ -37,6 +39,7 @@ export default function EditForm(props) {
             editedTodo.sharedWith.splice(sharedWithNewOwnerIndex, 1)
         }
         if (editedTodo.title) {
+            console.log(editedTodo);
             dispatch(editTodo(editedTodo))
         } else setMessage('Please, enter some text in empty field before you save.')
     }

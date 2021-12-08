@@ -16,7 +16,7 @@ class ReactionsService {
             eyes: 0,
             todoId: todoId
         }
-        await ReactionsService.collection.InsertOne(reactionDoc)
+        await ReactionsService.collection.insertOne(reactionDoc)
     }
 
     async findByTodoId(todoId) {

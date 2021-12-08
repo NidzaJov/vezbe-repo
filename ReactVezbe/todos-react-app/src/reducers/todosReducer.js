@@ -9,7 +9,7 @@ const initialState = {
     showSearch: false,
     hideCompleted: false,
     editMode: false,
-    editedTodoId: null,
+    editedTodo: null,
     error: null
 };
 

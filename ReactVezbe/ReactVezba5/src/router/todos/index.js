@@ -2,7 +2,8 @@ const express = require('express');
 const { Router } = express;
 const authMiddleware = require('../../middleware/auth');
 const todos = require('../../modules/services/todos');
-const todosService = require('../../modules/services/todos')
+const todosService = require('../../modules/services/todos');
+const reactionsService = require('../../modules/services/reactions');
 const { validateKeysExist } = require('../../modules/helpers');
 const { sharingActions } = require('../../constants');
 const config = require('../../config');
@@ -14,6 +15,7 @@ todosRouter.use(authMiddleware);
 
 todosRouter.get('/:todoId?', async function(req, res) {
     const { todoId } = req.params;
+    console.log('user', req.user._id);
     if (todoId) {
         const todo = await todosService.findbyId(req.user._id, todoId);
         res.json(todo);
@@ -24,6 +26,9 @@ todosRouter.get('/:todoId?', async function(req, res) {
             ...(await todosService.findAllSharedWithUserId(req.user._id))
         ];
         res.json(todos);
+        console.info(todos);
+        const shared = await todosService.findAllSharedWithUserId(req.user._id);
+        console.log(shared);
     }
 })
 
@@ -31,7 +36,8 @@ todosRouter.post('/', async function(req, res) {
     try{
         const todo = req.body;
         console.info('Create todo got: ', todo);
-        await todosService.create(req.user._id, todo);
+        const todoId = await todosService.create(req.user._id, todo);
+        await reactionsService.create(todoId);
         res.sendStatus(201);
     } catch (e) {
         console.error('Todo not created', e);
