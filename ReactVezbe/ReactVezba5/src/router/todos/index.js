@@ -15,7 +15,6 @@ todosRouter.use(authMiddleware);
 
 todosRouter.get('/:todoId?', async function(req, res) {
     const { todoId } = req.params;
-    console.log('user', req.user._id);
     if (todoId) {
         const todo = await todosService.findbyId(req.user._id, todoId);
         res.json(todo);
@@ -26,9 +25,6 @@ todosRouter.get('/:todoId?', async function(req, res) {
             ...(await todosService.findAllSharedWithUserId(req.user._id))
         ];
         res.json(todos);
-        console.info(todos);
-        const shared = await todosService.findAllSharedWithUserId(req.user._id);
-        console.log(shared);
     }
 })
 

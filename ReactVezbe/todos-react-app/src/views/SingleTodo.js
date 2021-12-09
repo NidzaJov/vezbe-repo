@@ -3,20 +3,30 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllUsers } from '../actions/userActions';
 import MainLayout from './MainLayout';
 import { logout } from '../actions/authActions';
+import ReactionButtons from '../components/ReactionButtons'
 
 
 export default function SingleTodo( {match} ) {
-    useEffect(() => {
-        dispatch(getAllUsers());
-    }, []);
-
     const { todoId } = match.params;
     const dispatch = useDispatch();
     const todo = useSelector(state => state.todos.list.find(todo => todo._id === todoId));
     const usersList = useSelector(state => state.users.usersList);
-
+    
+    useEffect(() => {
+        dispatch(getAllUsers());
+    }, [dispatch])
+    
+    
+    console.log(todo);
+    console.log(usersList);
+    usersList.map(user => console.log(user._id));
+    todo.sharedWith.map(id => console.log(id));
     const findUser = (id) => usersList.find(user => user._id.toString() === id);
-    const sharedWithList = todo.sharedWith.map((id, idx) => <article key={idx} ><span>{findUser(id).name ? findUser(id).name :findUser(id).firstName + ' ' + findUser(id).lastName}</span></article>)
+    const sharedWithList = todo.sharedWith.map((id, idx) => {
+        console.log(id, idx);
+        console.log(findUser(id));
+        return <article key={idx} ><span>{findUser(id).firstName + ' ' + findUser(id).lastName}</span></article>
+    })
     const owner = findUser(todo.owner);
 
     if (!todo) {
@@ -40,6 +50,9 @@ export default function SingleTodo( {match} ) {
                     <div>
                         <h3>Shared with:</h3>
                         {sharedWithList}
+                    </div>
+                    <div>
+                        <ReactionButtons todo={todo}></ReactionButtons>
                     </div>
                     
                 </article>
