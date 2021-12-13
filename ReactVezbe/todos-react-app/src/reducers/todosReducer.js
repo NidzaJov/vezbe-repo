@@ -103,8 +103,11 @@ export default function todosReducer(state=initialState, action) {
                 error: action.payload
             }  
         case SHARE_TODO_WITH_USER: 
+            console.log('Action SHARE_TODO started')
             const todosList = [...state.list];
-            let addedTodo = todosList.find(todo => todo._id === action.payload._id);
+            console.info('List',todosList);
+            let addedTodo = todosList.find(todo => todo._id === action.payload.todoId);
+            console.info(addedTodo);
             addedTodo.sharedWith.push(action.payload.userId);
             return {
                     ...state,
@@ -117,7 +120,7 @@ export default function todosReducer(state=initialState, action) {
             }  
         case UNSHARE_TODO_WITH_USER:
             const listOfTodos = [...state.list];
-            let sharedTodo = listOfTodos.find(todo => todo._id === action.payload._id);
+            let sharedTodo = listOfTodos.find(todo => todo._id === action.payload.todoId);
             let index = sharedTodo.sharedWith.indexOf(action.payload.userId)
             sharedTodo.sharedWith.splice(index, 1);
             return {

@@ -18,6 +18,15 @@ class NotificationsService {
             throw new Error('Create notification failed')
         }
     }
+
+    async editNotification(payload) {
+        const result = await FetchService.putRequest('notifications', payload);
+        if (result.status === 204) {
+            return true;
+        } else {
+            throw new Error('Edit notification failed');
+        }
+    }
 }
 
 export default new NotificationsService();

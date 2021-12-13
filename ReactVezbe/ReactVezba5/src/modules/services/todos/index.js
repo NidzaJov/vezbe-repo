@@ -72,7 +72,7 @@ class TodosService {
         } else {
             throw new Error('Unknown action')
         }
-
+        
         return await TodosService.collection.updateOne({
             _id: new ObjectID(todoId),
             owner: ownerId,

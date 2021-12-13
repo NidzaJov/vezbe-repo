@@ -11,7 +11,6 @@ const notificationsRouter = Router();
 notificationsRouter.use(authMiddleware);
 
 notificationsRouter.get('/:notificationId?', async function(req, res) {
-    console.info('GET request recieved')
     const { notificationId } = req.params;
     let notifications ;
     if (notificationId) {
@@ -20,7 +19,6 @@ notificationsRouter.get('/:notificationId?', async function(req, res) {
     }
     else {
         notifications = [...(await notificationsService.findAllByUserId(req.user._id))];
-        console.info(notifications);
     }
     res.json(notifications)
 })
@@ -42,9 +40,22 @@ notificationsRouter.patch('/', async function(req, res) {
         const { body } = req;
         console.info('Patch request bodu', body);
         let { _id, field, value } = body;
-        await notificationsService.updateField(_id, field, value)
+        await notificationsService.updateField(_id, field, value);
+        res.sendStatus(204);
     } catch (e) {
         console.error('Notification not pached', e);
+        res.sendStatus(400);
+    }
+})
+
+notificationsRouter.put('/', async function(req, res) {
+    try {
+        const { body } = req;
+        console.info('Put request got:', body);
+        await notificationsService.update(body);
+        res.sendStatus(204);
+    } catch (e) {
+        console.error('Notification not put', e);
         res.sendStatus(400);
     }
 })

@@ -45,15 +45,16 @@ class NotificationsService {
     }
 
     async update(notification) {
-        const { _id, receiver } = notification;
+        const { _id, receiver, sender } = notification;
         delete notification._id;
-        delete notification.receiver
+        delete notification.receiver;
+        delete notification.sender;
 
         return await NotificationsService.collection
         .updateOne({
-            _id: new ObjectId(_id)
+            _id: new ObjectID(_id)
         }, {
-            $set: {...notification, receiver: new ObjectID(notofication.receiver)}
+            $set: {...notification, receiver: new ObjectID(receiver), sender: new ObjectID(sender)}
         })
 
     }

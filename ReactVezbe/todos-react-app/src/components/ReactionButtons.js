@@ -39,7 +39,7 @@ export default function ReactionButtons({ todo }) {
                             {reaction[key]} {reactionEmoji[key]}
                         </button>
                     )
-                }
+                } else return null
                 
             })
         }</div>)

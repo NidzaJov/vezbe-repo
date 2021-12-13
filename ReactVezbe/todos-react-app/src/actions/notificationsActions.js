@@ -6,7 +6,6 @@ export function getAllNotifications() {
     return async (dispatch) => {
         try {
             const notificationsList = await notificationsService.getAllNotifications();
-            console.log('notificationsList:', notificationsList);
             dispatch({
                 type: GET_NOTIFICATIONS,
                 payload: notificationsList
@@ -28,6 +27,21 @@ export function addNotification(payload) {
                 payload: notification
             })
             */
+        } catch (e) {
+
+        }
+    }
+}
+
+export function allNotificationRead() {
+    return async (dispatch) => {
+        try {
+            const notificationsList = await notificationsService.getAllNotifications();
+            notificationsList.forEach(async (notification) => {
+                notification.read = true;
+                await notificationsService.editNotification(notification);
+            })
+            getAllNotifications() (dispatch);
         } catch (e) {
 
         }

@@ -8,7 +8,6 @@ const initialState = {
 export default function notificationReducer(state=initialState, action) {
     switch(action.type) {
         case GET_NOTIFICATIONS:
-            console.log('Notification reducer started working', action.payload);
             return {
                 ...state,
                 notificationsList: action.payload
