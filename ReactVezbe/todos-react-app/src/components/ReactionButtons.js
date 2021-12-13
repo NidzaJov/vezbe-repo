@@ -26,7 +26,7 @@ export default function ReactionButtons({ todo }) {
     const reaction = useSelector(state => state.reactions.reactionsList.find(reaction => reaction.todoId === todo._id));
    
     if (reaction) {
-        return (<div>{
+        return (<div className="reaction-div">{
             Object.keys(reaction).map(key => {
                 if(Object.keys(reactionEmoji).includes(key)) {
                     return (

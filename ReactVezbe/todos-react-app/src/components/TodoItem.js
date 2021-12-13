@@ -26,27 +26,32 @@ export default function TodoItem(props) {
 
     return (
         <div className="list-item">
-            <input 
-                type="checkbox"
-                checked={props.todo.done}
-                onChange={(e) => toggle(e,props.todo)}
-            />
-            <span>{props.todo.title}</span>
-            <TimeAgo timestamp={props.todo.lastModified}></TimeAgo>
-            <ReactionButtons todo={props.todo}></ReactionButtons>
-            <Link to={`/todos/${props.todo._id}`} className='list-item-link'>View todo</Link>
-            <button
-            onClick={() => handleShareClick(props.todo)}
-            > Share
-            </button>
-            <button
-            className='edit-button'
-            onClick={() => handleEditClick(props.todo)}
-            >Edit</button>
-            <button 
-            onClick={handleDeleteTodo}
-            >X
-            </button>
+            <div className="list-content">
+                <input 
+                    type="checkbox"
+                    checked={props.todo.done}
+                    onChange={(e) => toggle(e,props.todo)}
+                />
+                <span>{props.todo.title}</span>
+                <TimeAgo timestamp={props.todo.lastModified}></TimeAgo>
+                
+                <Link to={`/todos/${props.todo._id}`} className='list-item-link'>View todo</Link>
+                <button
+                onClick={() => handleShareClick(props.todo)}
+                > Share
+                </button>
+                <button
+                className='edit-button'
+                onClick={() => handleEditClick(props.todo)}
+                >Edit</button>
+                <button 
+                onClick={handleDeleteTodo}
+                >X
+                </button>
+            </div>
+            <div>
+                <ReactionButtons todo={props.todo}></ReactionButtons>
+            </div>
         </div>
     )
 }
