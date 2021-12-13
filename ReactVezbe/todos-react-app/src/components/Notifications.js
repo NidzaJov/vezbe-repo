@@ -23,6 +23,13 @@ export default function Notifications() {
 
     const notifications = useSelector(state =>  state.notifications.notificationsList);
     const users = useSelector(state => state.users.usersList);
+    const numUnreadNotifications = notifications.filter(n => !n.read).length;
+    let unreadNotificationsBadge
+    if (numUnreadNotifications > 0) {
+        unreadNotificationsBadge = (
+            <span className="badge">{numUnreadNotifications}</span>
+        )
+    }
 
     const notificationElements = notifications.map((notification, idx) => {
         let user = users.find(u => u._id.toString() === notification.sender) || { firstName: 'Unknown', lastname: 'user'}
@@ -41,9 +48,12 @@ export default function Notifications() {
 
     return (
         notifications?
-        <div>{
+        <div>
+            <div>Notifications: {unreadNotificationsBadge}</div>
+            {
             notificationElements
-        }</div>
+        }
+            </div>
         : <div>No notifications</div>
     )
 }
