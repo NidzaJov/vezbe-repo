@@ -5,6 +5,7 @@ const auth = require('./auth');
 const todos = require('./todos');
 const users = require('./users');
 const reactions = require('./reactions');
+const notifications = require('./notifications');
 
 const mainRouter = Router();
 
@@ -18,6 +19,7 @@ mainRouter.use(auth.path, auth.router);
 mainRouter.use(todos.path, todos.router);
 mainRouter.use(users.path, users.router);
 mainRouter.use(reactions.path, reactions.router);
+mainRouter.use(notifications.path, notifications.router);
 
 module.exports = {
     path: '/api',

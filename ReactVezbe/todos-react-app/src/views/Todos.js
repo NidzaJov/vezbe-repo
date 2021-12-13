@@ -8,6 +8,7 @@ import  TodoForm  from "../components/TodoForm";
 import SearchForm from '../components/SearchForm';
 import EditForm from '../components/EditForm';
 import classNames from 'classnames';
+import Notifications from '../components/Notifications';
 
 export default function Todos() {
     const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export default function Todos() {
     useEffect(() => {
         dispatch(getAllTodos());
     }, [dispatch])
+    
     
     return (
         <MainLayout title={'My Todos'} buttonText={'Logout'} callback={() => { dispatch(logout()) }} >
@@ -38,6 +40,7 @@ export default function Todos() {
 
             <TodoForm/>
            <TodoList todoList={list} key={list._id} />
+           <Notifications/>
             </div>
             
         </MainLayout>

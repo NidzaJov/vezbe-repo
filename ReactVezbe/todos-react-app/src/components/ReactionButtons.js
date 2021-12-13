@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { addReaction, getReaction } from "../actions/reactionsActions";
+import { addNotification } from "../actions/notificationsActions";
 import { useEffect } from 'react';
 
 const reactionEmoji = {
@@ -17,6 +18,11 @@ export default function ReactionButtons({ todo }) {
         dispatch(getReaction(todo._id))
     } , [dispatch]);
 
+    const reactionClicked = (key) => {
+        dispatch(addReaction({todoId: todo._id, reaction: key}));
+        dispatch(addNotification({ receiver: todo.owner, todoId: todo._id, reaction: key}))
+    }
+
     const reaction = useSelector(state => state.reactions.reactionsList.find(reaction => reaction.todoId === todo._id));
    
     if (reaction) {
@@ -28,7 +34,7 @@ export default function ReactionButtons({ todo }) {
                             key={key}
                             type="button" 
                             className="reaction-button"
-                            onClick={() => dispatch(addReaction({todoId: todo._id, reaction: key}))}
+                            onClick={() => reactionClicked(key)}
                         >
                             {reaction[key]} {reactionEmoji[key]}
                         </button>
