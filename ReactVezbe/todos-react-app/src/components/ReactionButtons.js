@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { addReaction, getReaction } from "../actions/reactionsActions";
 import { addNotification } from "../actions/notificationsActions";
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 
 const reactionEmoji = {
     thumbsUp: '👍',
@@ -11,7 +11,7 @@ const reactionEmoji = {
   eyes: '👀',
 }
 
-export default function ReactionButtons({ todo }) {
+function ReactionButtons({ todo }) {
     const dispatch = useDispatch();
     
     useEffect(() => {
@@ -46,5 +46,5 @@ export default function ReactionButtons({ todo }) {
     } else return null
 }
 
-
+export default memo(ReactionButtons);
 

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../actions/authActions";
 import MainLayout from "./MainLayout";
 import { getAllTodos } from '../actions/todosActions';
-import { TodoList } from "../components/TodoList";
+import TodoList from "../components/TodoList";
 import  TodoForm  from "../components/TodoForm";
 import SearchForm from '../components/SearchForm';
 import EditForm from '../components/EditForm';

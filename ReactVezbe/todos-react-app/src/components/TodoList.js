@@ -1,8 +1,9 @@
 import TodoItem  from './TodoItem';
 import { useDispatch, useSelector } from 'react-redux'
 import { hideCompleted } from '../actions/todosActions';
+import { memo } from 'react';
 
-export function TodoList(props) {
+function TodoList(props) {
     
     const dispatch = useDispatch();
     const hidenCompleted = useSelector(state => state.todos.hideCompleted);
@@ -32,3 +33,5 @@ export function TodoList(props) {
         </>
     )
 }
+
+export default memo(TodoList);
